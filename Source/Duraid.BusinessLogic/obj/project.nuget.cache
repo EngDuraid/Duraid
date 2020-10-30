@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7hYalU7FLG6xw0gBs8eYToXmWD1lNYnvghpi0RqcyBvrOObHnikZvi2XIPtZA9sfPEbw46Q3HtQjYB2JV84f0A==",
+  "dgSpecHash": "RCeaZ1V3vjqIQ4hhMTPdpOkktubCaBPQAGwrasnXe6dFojOIDKr6/grd1/0EIP8BSul24F0RjQr2sot5vqeSQQ==",
   "success": true,
-  "projectFilePath": "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.BusinessLogic\\Duraid.BusinessLogic.csproj",
+  "projectFilePath": "D:\\Repos\\Duraid\\Source\\Duraid.BusinessLogic\\Duraid.BusinessLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Eng. Duraid\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Eng. Duraid\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

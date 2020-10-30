@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.BusinessLogic\\Duraid.BusinessLogic.csproj": {}
+    "D:\\Repos\\Duraid\\Source\\Duraid.BusinessLogic\\Duraid.BusinessLogic.csproj": {}
   },
   "projects": {
-    "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.BusinessLogic\\Duraid.BusinessLogic.csproj": {
+    "D:\\Repos\\Duraid\\Source\\Duraid.BusinessLogic\\Duraid.BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.BusinessLogic\\Duraid.BusinessLogic.csproj",
+        "projectUniqueName": "D:\\Repos\\Duraid\\Source\\Duraid.BusinessLogic\\Duraid.BusinessLogic.csproj",
         "projectName": "Duraid.BusinessLogic",
-        "projectPath": "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.BusinessLogic\\Duraid.BusinessLogic.csproj",
+        "projectPath": "D:\\Repos\\Duraid\\Source\\Duraid.BusinessLogic\\Duraid.BusinessLogic.csproj",
         "packagesPath": "C:\\Users\\Eng. Duraid\\.nuget\\packages\\",
-        "outputPath": "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.BusinessLogic\\obj\\",
+        "outputPath": "D:\\Repos\\Duraid\\Source\\Duraid.BusinessLogic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -33,8 +33,8 @@
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
-              "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj": {
-                "projectPath": "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj"
+              "D:\\Repos\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj": {
+                "projectPath": "D:\\Repos\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj"
               }
             }
           }
@@ -72,14 +72,14 @@
         }
       }
     },
-    "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj": {
+    "D:\\Repos\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj",
+        "projectUniqueName": "D:\\Repos\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj",
         "projectName": "Duraid.Domain",
-        "projectPath": "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj",
+        "projectPath": "D:\\Repos\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj",
         "packagesPath": "C:\\Users\\Eng. Duraid\\.nuget\\packages\\",
-        "outputPath": "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.Domain\\obj\\",
+        "outputPath": "D:\\Repos\\Duraid\\Source\\Duraid.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

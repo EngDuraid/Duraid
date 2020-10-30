@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vk4ZBffX6NSTnxzOzhdT4Bb4+ethkYQtXJFvb66PVWdg8KYpWY3f4NhR7doHvmSYvXE4GcoKrwV8i0vIyM1Ftg==",
+  "dgSpecHash": "8Gii8vG5xJxzrlRcl5OxBYYFcN/KY28iNVoZmA1oWtxTBfFYf4D3iANMQ9n534wxgxILba7jvH9ndmLA9M9oIQ==",
   "success": true,
-  "projectFilePath": "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj",
+  "projectFilePath": "D:\\Repos\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

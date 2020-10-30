@@ -1,0 +1,12 @@
+D:\Repos\Duraid\Source\Duraid.BusinessLogic\bin\Debug\netstandard2.1\Duraid.BusinessLogic.deps.json
+D:\Repos\Duraid\Source\Duraid.BusinessLogic\bin\Debug\netstandard2.1\Duraid.BusinessLogic.dll
+D:\Repos\Duraid\Source\Duraid.BusinessLogic\bin\Debug\netstandard2.1\Duraid.BusinessLogic.pdb
+D:\Repos\Duraid\Source\Duraid.BusinessLogic\bin\Debug\netstandard2.1\Duraid.Domain.dll
+D:\Repos\Duraid\Source\Duraid.BusinessLogic\bin\Debug\netstandard2.1\Duraid.Domain.pdb
+D:\Repos\Duraid\Source\Duraid.BusinessLogic\obj\Debug\netstandard2.1\Duraid.BusinessLogic.csprojAssemblyReference.cache
+D:\Repos\Duraid\Source\Duraid.BusinessLogic\obj\Debug\netstandard2.1\Duraid.BusinessLogic.AssemblyInfoInputs.cache
+D:\Repos\Duraid\Source\Duraid.BusinessLogic\obj\Debug\netstandard2.1\Duraid.BusinessLogic.AssemblyInfo.cs
+D:\Repos\Duraid\Source\Duraid.BusinessLogic\obj\Debug\netstandard2.1\Duraid.BusinessLogic.csproj.CoreCompileInputs.cache
+D:\Repos\Duraid\Source\Duraid.BusinessLogic\obj\Debug\netstandard2.1\Duraid.BusinessLogic.csproj.CopyComplete
+D:\Repos\Duraid\Source\Duraid.BusinessLogic\obj\Debug\netstandard2.1\Duraid.BusinessLogic.dll
+D:\Repos\Duraid\Source\Duraid.BusinessLogic\obj\Debug\netstandard2.1\Duraid.BusinessLogic.pdb

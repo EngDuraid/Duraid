@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.Infrastructure\\Duraid.Infrastructure.csproj",
+      "projectUniqueName": "D:\\Repos\\Duraid\\Source\\Duraid.Infrastructure\\Duraid.Infrastructure.csproj",
       "projectName": "Duraid.Infrastructure",
-      "projectPath": "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.Infrastructure\\Duraid.Infrastructure.csproj",
+      "projectPath": "D:\\Repos\\Duraid\\Source\\Duraid.Infrastructure\\Duraid.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Eng. Duraid\\.nuget\\packages\\",
-      "outputPath": "D:\\VS projects\\Visual Studio 2019\\Duraid\\Source\\Duraid.Infrastructure\\obj\\",
+      "outputPath": "D:\\Repos\\Duraid\\Source\\Duraid.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
