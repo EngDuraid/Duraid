@@ -13,13 +13,31 @@ namespace Duraid.BusinessLogic.Data
         readonly IDataContext _dataContext;
         public CreateSaver(IDataContext dataContext) : base(dataContext)
         {
-            _dataContext = dataContext;
+           _dataContext = dataContext;
         }
 
         public async Task<int> SaveCreatedAsync(T entity, CancellationToken cancellationToken=default)
         {
-            await AddAsync(entity);
-            return await _dataContext.SaveChangesAsync(cancellationToken);
+            try
+            {
+                await AddAsync(entity);
+                return await Commit(cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected internal async Task<int> Commit(CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await _dataContext.SaveChangesAsync(cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

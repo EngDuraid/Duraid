@@ -20,8 +20,7 @@ namespace Duraid.BusinessLogic.Data
         {
             try
             {
-                var x = Table.Where(expression);
-                return x;
+                return Table.Where(expression) ;
             }
             catch (Exception ex)
             {

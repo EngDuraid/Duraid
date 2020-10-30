@@ -20,22 +20,11 @@ namespace Duraid.BusinessLogic.Data
             await Table.AddAsync(entity);
         }
 
-        public async Task<int> Commit(CancellationToken cancellationToken = default)
-        {
-            try
-            {
-                return await _dataContext.SaveChangesAsync(cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        
 
     }
     public interface ICreator<T> where T : class
     {
         Task AddAsync(T entity);
-        Task<int> Commit(CancellationToken cancellationToken = default);
     }
 }

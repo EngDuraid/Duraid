@@ -1,0 +1,9 @@
+D:\Repos\Duraid\Source\Duraid.Infrastructure\bin\Debug\netstandard2.1\Duraid.Infrastructure.deps.json
+D:\Repos\Duraid\Source\Duraid.Infrastructure\bin\Debug\netstandard2.1\Duraid.Infrastructure.dll
+D:\Repos\Duraid\Source\Duraid.Infrastructure\bin\Debug\netstandard2.1\Duraid.Infrastructure.pdb
+D:\Repos\Duraid\Source\Duraid.Infrastructure\obj\Debug\netstandard2.1\Duraid.Infrastructure.csprojAssemblyReference.cache
+D:\Repos\Duraid\Source\Duraid.Infrastructure\obj\Debug\netstandard2.1\Duraid.Infrastructure.AssemblyInfoInputs.cache
+D:\Repos\Duraid\Source\Duraid.Infrastructure\obj\Debug\netstandard2.1\Duraid.Infrastructure.AssemblyInfo.cs
+D:\Repos\Duraid\Source\Duraid.Infrastructure\obj\Debug\netstandard2.1\Duraid.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Repos\Duraid\Source\Duraid.Infrastructure\obj\Debug\netstandard2.1\Duraid.Infrastructure.dll
+D:\Repos\Duraid\Source\Duraid.Infrastructure\obj\Debug\netstandard2.1\Duraid.Infrastructure.pdb
