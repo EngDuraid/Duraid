@@ -2,6 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Duraid.BusinessLogic;
+using Duraid.BusinessLogic.Common.Interfaces;
+using Duraid.Infrastructure;
+using Duraid.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +30,9 @@ namespace Duraid.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddBusinessLogic();
+            services.AddInfrastructure();
+            services.ConfigurePersistence();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +53,7 @@ namespace Duraid.API
             {
                 endpoints.MapControllers();
             });
+           
         }
     }
 }

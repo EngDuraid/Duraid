@@ -9,13 +9,13 @@ namespace Duraid.Domain.Entities
     {
         public Category()
         {
-            Posts = new HashSet<Post>();
+            CategoryPosts = new HashSet<PostCategory>();
         }
         public Guid CategoryId { get; set; }
 
         public string  CategoryName { get; set; }
 
-        public ICollection<Post> Posts { get; set; }
+        public ICollection<PostCategory> CategoryPosts { get; set; }
     }
 
 }

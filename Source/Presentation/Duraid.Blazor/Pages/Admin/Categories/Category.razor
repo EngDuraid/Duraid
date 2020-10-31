@@ -1,0 +1,40 @@
+﻿@page "/admin/category"
+@page "/admin/category/{id}"
+@inherits CategoryBase
+<div class="container">
+    <div class="row">
+        @if (string.IsNullOrWhiteSpace(Category?.CategoryName))
+        {
+            <h3>@Title New Category</h3>
+
+        }
+        else
+        {
+            <h3>@Title @Category.CategoryName</h3>
+
+            <button class="btn btn-danger" title="Delete" @onclick="@Delete"><span class="oi oi-trash" /> </button>
+        }
+    </div>
+    <div class="row">
+        <div class="col-lg-11 col-md-11">
+            <EditForm Model="@Category" OnValidSubmit="@SaveAsync">
+                <DataAnnotationsValidator />
+
+                <div class="form-group">
+                    <p> Category name</p>
+
+                    <InputText class="form-control" @bind-Value="@Category.CategoryName" />
+                    <ValidationMessage For="@(() => Category.CategoryName)" />
+
+                </div>
+                <div class="btn-block">
+                    <button class="btn btn-outline-primary" type="submit" title="Save"><span class="oi oi-check" /></button>
+                    <a href="/categories" class="btn btn-dark" title="Back"><span class="oi oi-arrow-circle-left" /></a>
+
+                </div>
+            </EditForm>
+
+        </div>
+    </div>
+
+</div>

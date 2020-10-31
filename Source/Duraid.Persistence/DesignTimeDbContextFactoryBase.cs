@@ -6,26 +6,6 @@ using System.IO;
 
 namespace Duraid.Persistence
 {
-    //public class InMemoryDataContext : DbContext, IDataContext
-    //{
-    //    public DbSet<Client> Clients { get; set; }
-    //    public DbSet<State> States { get; set; }
-    //    public DbSet<Test> Tests { get; set; }
-    //    public DbSet<Ip> Ips { get; set; }
-    //    public DbSet<Notification> Notifications { get; set; }
-
-
-
-
-    //}
-
-    public class InMemoryDataContext : DesignTimeDbContextFactoryBase<DuraidDataContext>
-    {
-        protected override DuraidDataContext CreateNewInstance(DbContextOptions<DuraidDataContext> options)
-        {
-            return new DuraidDataContext(options);
-        }
-    }
     /// <summary>
     /// These packages added to create this abstract class
     /// </summary>
@@ -41,12 +21,12 @@ namespace Duraid.Persistence
     public abstract class DesignTimeDbContextFactoryBase<TContext> :
         IDesignTimeDbContextFactory<TContext> where TContext : DbContext
     {
-        private const string ConnectionStringName = "PingMonitorDatabase";
+        private const string ConnectionStringName = "DuraidDatabase";
         private const string AspNetCoreEnvironment = "ASPNETCORE_ENVIRONMENT";
 
         public TContext CreateDbContext(string[] args)
         {
-            var basePath = Directory.GetCurrentDirectory() + string.Format("{0}..{0}PingMonitorUI", Path.DirectorySeparatorChar);
+            var basePath = Directory.GetCurrentDirectory() + string.Format("{0}..{0}Duraid.API", Path.DirectorySeparatorChar);
             return Create(basePath, Environment.GetEnvironmentVariable(AspNetCoreEnvironment));
         }
 
