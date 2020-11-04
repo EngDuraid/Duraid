@@ -1,6 +1,7 @@
 D:\Repos\Duraid\Common\Duraid.Common\bin\Debug\netstandard2.0\Duraid.Common.deps.json
 D:\Repos\Duraid\Common\Duraid.Common\bin\Debug\netstandard2.0\Duraid.Common.dll
 D:\Repos\Duraid\Common\Duraid.Common\bin\Debug\netstandard2.0\Duraid.Common.pdb
+D:\Repos\Duraid\Common\Duraid.Common\obj\Debug\netstandard2.0\Duraid.Common.csprojAssemblyReference.cache
 D:\Repos\Duraid\Common\Duraid.Common\obj\Debug\netstandard2.0\Duraid.Common.AssemblyInfoInputs.cache
 D:\Repos\Duraid\Common\Duraid.Common\obj\Debug\netstandard2.0\Duraid.Common.AssemblyInfo.cs
 D:\Repos\Duraid\Common\Duraid.Common\obj\Debug\netstandard2.0\Duraid.Common.csproj.CoreCompileInputs.cache

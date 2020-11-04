@@ -11,6 +11,7 @@ namespace Duraid.Blazor.Pages.Admin.Categories
 {
     public class CategoryBase: ComponentBase
     {
+        [Parameter]
         public CategoryDTO Category { get; set; }
 
         [Parameter]
@@ -59,18 +60,19 @@ namespace Duraid.Blazor.Pages.Admin.Categories
 
                     if (!(await Service.Update(result, Category) is null))
                     {
-                        NavigationManager.NavigateTo("categories");
+                        NavigationManager.NavigateTo("admin/categories");
                     }
                 }
                 else
                 {
                     await Service.Create(Category);
-                    NavigationManager.NavigateTo("/categories");
+                    NavigationManager.NavigateTo("admin/categories");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                NavigationManager.NavigateTo("/Error");
+                Console.WriteLine(ex.Message);
+               // NavigationManager.NavigateTo("/Error");
             }
         }
 
@@ -85,7 +87,7 @@ namespace Duraid.Blazor.Pages.Admin.Categories
                     return;
 
                 Guid.TryParse(Id, out Guid result);
-                await Service.Delete(result, Category);
+                await Service.Delete(result);
             }
             catch (Exception)
             {

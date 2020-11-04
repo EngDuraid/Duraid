@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Duraid.Blazor.Areas.Identity;
 using Duraid.Blazor.Data;
+using Microsoft.AspNetCore.SignalR;
 
 namespace Duraid.Blazor
 {
@@ -70,6 +71,7 @@ namespace Duraid.Blazor
             {
                 endpoints.MapControllers();
                 endpoints.MapBlazorHub();
+                endpoints.MapRazorPages(); //new
                 endpoints.MapFallbackToPage("/_Host");
             });
         }

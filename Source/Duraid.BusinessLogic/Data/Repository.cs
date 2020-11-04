@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Duraid.Domain.Entities;
 
 namespace Duraid.BusinessLogic.Data
 {
@@ -23,25 +24,25 @@ namespace Duraid.BusinessLogic.Data
             await Table.AddAsync(entity);
             return entity;
         }
-        
+
         public async Task AddRangeAsync(IEnumerable<T> entities)
         {
             await Table.AddRangeAsync(entities);
         }
     }
 
-    public class Commander<T>: ICommander<T> where T : class
+    public class Commander<T> : ICommander<T> where T : EntityBase
     {
         readonly ICreateSaver<T> _creator;
         readonly IUpdateSaver<T> _updater;
         readonly IDeleteSaver<T> _deleter;
-        public Commander(ICreateSaver<T> creator,IUpdateSaver<T> updater,IDeleteSaver<T> deleter)
+        public Commander(ICreateSaver<T> creator, IUpdateSaver<T> updater, IDeleteSaver<T> deleter)
         {
             _deleter = deleter;
             _updater = updater;
             _creator = creator;
         }
-        public virtual async Task<int>AddAsync(T entity)
+        public virtual async Task<int> AddAsync(T entity)
         {
             try
             {
@@ -81,7 +82,7 @@ namespace Duraid.BusinessLogic.Data
         }
     }
 
-    public interface ICommander<T> where T : class
+    public interface ICommander<T> where T : EntityBase
     {
         Task<int> AddAsync(T entity);
         Task DeleteAsync(Guid id);

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Duraid.API.Connector;
 using Duraid.BusinessLogic;
 using Duraid.BusinessLogic.Common.Interfaces;
 using Duraid.Infrastructure;
@@ -29,6 +30,8 @@ namespace Duraid.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();                       // new
+            services.AddSignalR();                          // new
             services.AddControllers();
             services.AddBusinessLogic();
             services.AddInfrastructure();
@@ -42,16 +45,32 @@ namespace Duraid.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
-
+           
+            app.UseHttpsRedirection();                          // new
+            //app.UseBlazorFrameworkFiles();                    // new
+            app.UseStaticFiles(); //new
+            
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+
+
+                endpoints.MapRazorPages();                      // new
+                endpoints.MapFallbackToFile("index.html");      // new
+
+                endpoints.MapHub<HubConnector>("/connector");   // new
             });
            
         }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +27,8 @@ namespace Duraid.Blazor.Services
             string name1 = name.Replace("DTO", "");
             if (name1.EndsWith("y"))
             {
-                int lastPosition=(name1.Length)-1;
-                name1 = name1.Remove(lastPosition,1) + "ies";
+                int lastPosition = (name1.Length) - 1;
+                name1 = name1.Remove(lastPosition, 1) + "ies";
             }
             path = name1.ToLower();
         }
@@ -35,12 +36,35 @@ namespace Duraid.Blazor.Services
         public async Task<IEnumerable<T>> Get() { return await http.GetJsonAsync<IEnumerable<T>>($"api/{path}"); }
         public async Task<T> Get(Guid id) { return await http.GetJsonAsync<T>($"api/{path}/{id}"); }
 
-        public async Task<T> Create(T content) { return await http.PostJsonAsync<T>($"api/{path}", content); }
+        public async Task<T> Create(T content)
+        {
+            try
+
+            {
+                await http.PostJsonAsync($"api/{path}", content);
+                return content;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
         public async Task<T> Update(Guid id, T content)
-        { return await http.PutJsonAsync<T>($"api/{path}/{id}", content); }
+        {
+            try
+            {
+                await http.PutJsonAsync<T>($"api/{path}/{id}", content);
+                return content;
+            }
+            catch (Exception ex)
+            {
+                throw ex; 
+            }
+        }
 
-        public async Task Delete(Guid id, T brand)
+        public async Task Delete(Guid id)
         {
             HttpResponseMessage x = await http.DeleteAsync($"api/{path}/{id}");
         }

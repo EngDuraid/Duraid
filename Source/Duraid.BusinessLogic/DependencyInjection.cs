@@ -17,6 +17,7 @@ namespace Duraid.BusinessLogic
             services.AddTransient(typeof(ICommander<>), typeof(Commander<>));
             services.AddTransient(typeof(IReadById<>), typeof(ReaderById<>));
             services.AddTransient(typeof(IReadAll<>), typeof(ReadAll<>));
+            services.AddTransient<IDateTime,MachineDateTime>();
         }
     }
 }

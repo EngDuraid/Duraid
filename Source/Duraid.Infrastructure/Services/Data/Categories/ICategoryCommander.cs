@@ -8,5 +8,6 @@ namespace Duraid.Infrastructure.Services.Data.Categories
     {
         Task<bool> CreateCategoryAsync(CategoryDTO dto);
         Task<bool> UpdateCategoryAsync(CategoryDTO dto);
+        Task<bool> DeleteCategoryAsync(Guid dto);
     }
 }

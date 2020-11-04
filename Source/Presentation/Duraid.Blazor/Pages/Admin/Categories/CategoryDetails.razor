@@ -1,0 +1,16 @@
+﻿@page "/admin/categories/{id}"
+@inherits CategoryDetailsBase
+
+<div class="container">
+    <div class="row">
+
+        @if (Category is null)
+        {
+            <div class="alert alert-danger">Loading ...</div> 
+        }
+        else
+        {
+            <h1>@Category.CategoryName Details</h1>
+        }
+    </div>
+</div>

@@ -17,7 +17,7 @@ namespace Duraid.Persistence
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlite(connectionString: @"Data Source=./PingMonitorDb.db");
+            optionsBuilder.UseSqlite(connectionString: @"Data Source=./Duraid.sqlite3");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

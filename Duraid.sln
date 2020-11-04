@@ -38,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duraid.API", "Source\Duraid
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{68D26962-F12A-44ED-820D-AD7DD8E16BC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duraid.Common", "Common\Duraid.Common\Duraid.Common.csproj", "{F446A114-8BF2-4DAF-89D3-B443D36B34E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Duraid.Common", "Common\Duraid.Common\Duraid.Common.csproj", "{F446A114-8BF2-4DAF-89D3-B443D36B34E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

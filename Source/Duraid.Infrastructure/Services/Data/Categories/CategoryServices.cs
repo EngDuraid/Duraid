@@ -29,7 +29,7 @@ namespace Duraid.Infrastructure.Services.Data.Categories
 
         public async Task<CategoryDTO> GetCategoryAsync(Guid categoryId)
         {
-            return await _filter.Search(c => c.CategoryId != categoryId)
+            return await _filter.Search(c => c.CategoryId == categoryId)
                .ProjectTo<CategoryDTO>(_mapper.ConfigurationProvider)
                .FirstOrDefaultAsync();
         }

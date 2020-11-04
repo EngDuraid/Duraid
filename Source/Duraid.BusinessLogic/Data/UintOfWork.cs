@@ -1,12 +1,13 @@
 ﻿using Duraid.BusinessLogic.Common.Interfaces;
 using Duraid.BusinessLogic.Data;
+using Duraid.Domain.Entities;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Duraid.BusinessLogic.Data
 {
-    public class UnitOfWork<T> : IUnitOfWork<T> where T : class
+    public class UnitOfWork<T> : IUnitOfWork<T> where T : EntityBase
     {
         private readonly IDataContext context;
         public UnitOfWork(IDataContext context, ICommander<T> entity)
