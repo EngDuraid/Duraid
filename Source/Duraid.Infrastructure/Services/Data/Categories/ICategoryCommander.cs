@@ -1,13 +1,12 @@
 ﻿using Duraid.Common.DTO;
+using Duraid.Domain.Entities;
 using System;
 using System.Threading.Tasks;
 
 namespace Duraid.Infrastructure.Services.Data.Categories
 {
-    public interface ICategoryCommander
+    public interface ICategoryCommander :IGenericCommanderServices<Category,CategoryDTO>
     {
-        Task<bool> CreateCategoryAsync(CategoryDTO dto);
-        Task<bool> UpdateCategoryAsync(CategoryDTO dto);
-        Task<bool> DeleteCategoryAsync(Guid dto);
+        new Task<bool> DeleteCategoryAsync(Guid dto);
     }
 }

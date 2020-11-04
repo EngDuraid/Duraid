@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8Gii8vG5xJxzrlRcl5OxBYYFcN/KY28iNVoZmA1oWtxTBfFYf4D3iANMQ9n534wxgxILba7jvH9ndmLA9M9oIQ==",
+  "dgSpecHash": "mGSaybTES/qW2ExpxSpC+LkdF3eB4LM+Y/FREbg/ssRziJ3Gk/E+5RB6kYBrj3be29NdGbVSzjEDE0SuH5y1zQ==",
   "success": true,
   "projectFilePath": "D:\\Repos\\Duraid\\Source\\Duraid.Domain\\Duraid.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Eng. Duraid\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

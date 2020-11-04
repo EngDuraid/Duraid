@@ -14,20 +14,25 @@ namespace Duraid.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public abstract class GenericController : ControllerBase
+    {
+
+    }
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CategoriesController : GenericController
     {
         readonly ICategoryServices _categoryServices;
         readonly ICategoryCommander _categoryCommander;
-        readonly IHubContext<HubConnector, IHubConnector> hub;
-        //   readonly ILogger _logger;
+        readonly IHubContext<HubConnector, IHubConnector> _hub;
 
         public CategoriesController(ICategoryServices categoryServices,
-            /*ILogger logger,*/ ICategoryCommander categoryCommander, IHubContext<HubConnector, IHubConnector> hub)
+             ICategoryCommander categoryCommander, IHubContext<HubConnector, IHubConnector> hub)
         {
             _categoryServices = categoryServices;
             _categoryCommander = categoryCommander;
-            this.hub = hub;
-            //_logger = logger;
+            _hub = hub;
         }
 
         [HttpGet]
@@ -37,7 +42,7 @@ namespace Duraid.API.Controllers
             try
             {
                 var categories = await _categoryServices.GetCategoriesAsync();
-                await hub.Clients.All.GetMessage(categories);
+                await _hub.Clients.All.GetMessage(categories);
                 return Ok(categories);
             }
             catch (Exception ex)

@@ -6,6 +6,7 @@ using Duraid.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Duraid.Infrastructure.Services.Data.Categories
@@ -39,4 +40,6 @@ namespace Duraid.Infrastructure.Services.Data.Categories
             return await _filter.Search(c => c.CategoryId == categoryId).AnyAsync();
         }
     }
+
+    
 }

@@ -242,3 +242,5 @@ D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\netcoreapp3.1\Duraid
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\netcoreapp3.1\Duraid.Blazor.genruntimeconfig.cache
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\Helper\Confirm.razor.g.cs
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\netcoreapp3.1\Razor\Shared\Helper\Confirm.razor.g.cs
+D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Admin\Posts\Posts.razor.g.cs
+D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Posts\Posts.razor.g.cs

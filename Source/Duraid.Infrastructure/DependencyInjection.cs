@@ -26,6 +26,7 @@ namespace Duraid.Infrastructure
         private static void ConfigureAutoMapper(IServiceCollection services)
         {
             services.AddAutoMapper(typeof(CategoryProfile));
+            services.AddAutoMapper(typeof(PostProfile));
         }
     }
 }

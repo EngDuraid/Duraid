@@ -1,5 +1,6 @@
 ﻿using Duraid.Blazor.Services;
 using Duraid.Blazor.Services.Categories;
+using Duraid.Blazor.Services.Posts;
 using Duraid.Common.DTO;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -11,26 +12,17 @@ namespace Duraid.Blazor
 {
     public static class DependencyInjection
     {
+        private readonly static string url = "https://localhost:44341/";
         public static void ConfigureHttpClients(this IServiceCollection services)
         {
             services.AddHttpClient<ICategoryServices, CategoryServices>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44341/");
+                client.BaseAddress = new Uri(url);
             });
-            //services.AddTransient(typeof(ICategoryServices), typeof(CategoryServices));
-            //services.AddHttpClient<IBrandService, BrandService>(client =>
-            //{
-            //    client.BaseAddress = new Uri("https://localhost:44320/");
-            //});
-
-            //services.AddHttpClient<IManufactureService, ManufactureService>(client =>
-            //{
-            //    client.BaseAddress = new Uri("https://localhost:44320/");
-            //});
-            //services.AddHttpClient<IProductService, ProductService>(client =>
-            //{
-            //    client.BaseAddress = new Uri("https://localhost:44320/");
-            //});
+            services.AddHttpClient<IPostServices, PostServices>(client =>
+            {
+                client.BaseAddress = new Uri(url);
+            });
         }
 
     }

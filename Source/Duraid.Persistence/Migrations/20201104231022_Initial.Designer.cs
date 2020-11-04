@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Duraid.Persistence.Migrations
 {
     [DbContext(typeof(DuraidDataContext))]
-    [Migration("20201031153146_Initial")]
+    [Migration("20201104231022_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

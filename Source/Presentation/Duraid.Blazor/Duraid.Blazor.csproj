@@ -19,4 +19,8 @@
     <ProjectReference Include="..\..\..\Common\Duraid.Common\Duraid.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Categories\" />
+  </ItemGroup>
+
 </Project>

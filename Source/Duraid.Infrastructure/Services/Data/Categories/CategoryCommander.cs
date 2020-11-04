@@ -11,48 +11,34 @@ using System.Threading.Tasks;
 
 namespace Duraid.Infrastructure.Services.Data.Categories
 {
-    class CategoryCommander : ICategoryCommander
+    class CategoryCommander : GenericCommanderServices<Category, CategoryDTO>, ICategoryCommander
     {
-        readonly ICommander<Category> _commander;
-        readonly IMapper _mapper;
+
         readonly IFilter<Category> _filter;
         public CategoryCommander(ICommander<Category> commander, IMapper mapper, IFilter<Category> filter)
+        : base(commander, mapper)
         {
-            _commander = commander;
-            _mapper = mapper;
             _filter = filter;
         }
 
-        public async Task<bool> CreateCategoryAsync(CategoryDTO dto)
+        public override async Task<bool> CreateCategoryAsync(CategoryDTO dto)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(dto.CategoryName))
-                    throw new ArgumentException("Invalid category name", nameof(dto.CategoryName));
-
-                var entity = _mapper.Map<Category>(dto);
-
-                return await _commander.AddAsync(entity) > 0;
+                CheckIfCategoryNameIsValid(dto);
+                return await base.CreateCategoryAsync(dto);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public async Task<bool> UpdateCategoryAsync(CategoryDTO dto)
+        public override async Task<bool> UpdateCategoryAsync(CategoryDTO dto)
         {
             try
             {
-                if (dto.CategoryId == Guid.Empty)
-                    throw new ArgumentException("Invalid category id", nameof(dto.CategoryId));
-
-                if (string.IsNullOrWhiteSpace(dto.CategoryName))
-                    throw new ArgumentException("Invalid category name", nameof(dto.CategoryName));
-
-                var entity = _mapper.Map<Category>(dto);
-
-                return await _commander.UpdateAsync(entity) > 0;
-
+                ValidateBeforeUpdate(dto);
+                return await base.UpdateCategoryAsync(dto);
             }
             catch (Exception ex)
             {
@@ -60,15 +46,13 @@ namespace Duraid.Infrastructure.Services.Data.Categories
             }
         }
 
-        public async Task<bool> DeleteCategoryAsync(Guid dto)
+
+        public new async Task<bool> DeleteCategoryAsync(Guid dto)
         {
             try
             {
-                if (dto == Guid.Empty)
-                    throw new ArgumentException("Invalid category id", nameof(dto));
-
-                await _commander.DeleteAsync(dto);
-                return await _filter.Search(c => c.CategoryId != dto).AnyAsync();
+                await base.DeleteCategoryAsync(dto);
+                return await ConfirmeDeletionAsync(dto);
             }
             catch (Exception ex)
             {
@@ -76,6 +60,32 @@ namespace Duraid.Infrastructure.Services.Data.Categories
             }
         }
 
+        private async Task<bool> ConfirmeDeletionAsync(Guid dto)
+        {
+            return await _filter.Search(c => c.CategoryId != dto).AnyAsync();
+        }
+
+        #region Validation Methods
+
+        private static void ValidateBeforeUpdate(CategoryDTO dto)
+        {
+            CheckIfCategoryIdIsValid(dto);
+            CheckIfCategoryNameIsValid(dto);
+        }
+
+        private static void CheckIfCategoryNameIsValid(CategoryDTO dto)
+        {
+            if (string.IsNullOrWhiteSpace(dto.CategoryName))
+                throw new ArgumentException("Invalid category name", nameof(dto.CategoryName));
+        }
+
+        private static void CheckIfCategoryIdIsValid(CategoryDTO dto)
+        {
+            if (dto.CategoryId == Guid.Empty)
+                throw new ArgumentException("Invalid category id", nameof(dto.CategoryId));
+        }
+        #endregion
 
     }
+
 }
