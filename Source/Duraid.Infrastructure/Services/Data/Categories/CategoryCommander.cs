@@ -21,24 +21,24 @@ namespace Duraid.Infrastructure.Services.Data.Categories
             _filter = filter;
         }
 
-        public override async Task<bool> CreateCategoryAsync(CategoryDTO dto)
+        public override async Task<bool> CreateAsync(CategoryDTO dto)
         {
             try
             {
                 CheckIfCategoryNameIsValid(dto);
-                return await base.CreateCategoryAsync(dto);
+                return await base.CreateAsync(dto);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public override async Task<bool> UpdateCategoryAsync(CategoryDTO dto)
+        public override async Task<bool> UpdateAsync(CategoryDTO dto)
         {
             try
             {
                 ValidateBeforeUpdate(dto);
-                return await base.UpdateCategoryAsync(dto);
+                return await base.UpdateAsync(dto);
             }
             catch (Exception ex)
             {
@@ -47,11 +47,11 @@ namespace Duraid.Infrastructure.Services.Data.Categories
         }
 
 
-        public new async Task<bool> DeleteCategoryAsync(Guid dto)
+        public new async Task<bool> DeleteAsync(Guid dto)
         {
             try
             {
-                await base.DeleteCategoryAsync(dto);
+                await base.DeleteAsync(dto);
                 return await ConfirmeDeletionAsync(dto);
             }
             catch (Exception ex)

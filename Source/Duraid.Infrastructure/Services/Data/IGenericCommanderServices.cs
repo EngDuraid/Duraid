@@ -10,10 +10,10 @@ namespace Duraid.Infrastructure.Services.Data
         where TEntity : EntityBase
         where TDTO : class
     {
-        Task<bool> CreateCategoryAsync(TDTO dto);
+        Task<bool> CreateAsync(TDTO dto);
 
-        Task DeleteCategoryAsync(Guid dto);
+        Task DeleteAsync(Guid dto);
 
-        Task<bool> UpdateCategoryAsync(TDTO dto);
+        Task<bool> UpdateAsync(TDTO dto);
     }
 }

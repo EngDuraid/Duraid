@@ -19,7 +19,7 @@ namespace Duraid.Infrastructure.Services.Data
             _mapper = mapper;
         }
 
-        public virtual async Task<bool> CreateCategoryAsync(TDTO dto)
+        public virtual async Task<bool> CreateAsync(TDTO dto)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace Duraid.Infrastructure.Services.Data
             }
         }
 
-        public virtual async Task<bool> UpdateCategoryAsync(TDTO dto)
+        public virtual async Task<bool> UpdateAsync(TDTO dto)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace Duraid.Infrastructure.Services.Data
             }
         }
 
-        public async Task DeleteCategoryAsync(Guid dto)
+        public virtual async Task DeleteAsync(Guid dto)
         {
             try
             {

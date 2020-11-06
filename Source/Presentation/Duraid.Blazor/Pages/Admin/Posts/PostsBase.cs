@@ -8,22 +8,31 @@ using System.Threading.Tasks;
 
 namespace Duraid.Blazor.Pages.Admin.Posts
 {
-    public class PostsBase:ComponentBase
+    public class PostsBase : ComponentBase
     {
         public IEnumerable<PostDTO> Posts { get; set; }
 
         [Inject]
         public IPostServices Services { get; set; }
-
-
+       
         protected override async Task OnInitializedAsync()
         {
             await GetPostsAsync();
         }
 
         async Task GetPostsAsync()
+        
+        
         {
-            Posts =  await Services.Get();
+            try
+            {
+                Posts = await Services.Get();
+            }
+            catch (Exception ex)
+            {
+
+                //throw ex;
+            }
         }
     }
 }

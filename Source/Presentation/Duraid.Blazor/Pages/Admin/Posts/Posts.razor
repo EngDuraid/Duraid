@@ -3,8 +3,48 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-m-10">
-            <p>Posts</p>
+        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
+            <p>Posts Managment</p>
+        </div>
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+            <a href="/admin/posts/create" class="btn btn-primary" title="Create new post" >
+                <span class="oi oi-plus"/> 
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+
+            @if (Posts is null)
+            {
+                <h4>Loading..</h4>
+            }
+            else if (Posts?.Count() < 1)
+            {
+                <h4>Their is no posts yet!</h4>
+            }
+            else
+            {
+                <div class="row">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Post title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var post in Posts)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="/admin/posts">@post.PostTitle</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
         </div>
     </div>
 </div>

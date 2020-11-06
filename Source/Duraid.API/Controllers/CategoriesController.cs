@@ -72,7 +72,7 @@ namespace Duraid.API.Controllers
         {
             try
             {
-                bool inserted = await _categoryCommander.CreateCategoryAsync(dto);
+                bool inserted = await _categoryCommander.CreateAsync(dto);
                 return CreatedAtAction(nameof(Get), new { id = dto.CategoryId }, dto);
             }
             catch (Exception ex)
@@ -90,7 +90,7 @@ namespace Duraid.API.Controllers
                 if (id != dto.CategoryId)
                     return BadRequest();
 
-                var category = await _categoryCommander.UpdateCategoryAsync(dto);
+                var category = await _categoryCommander.UpdateAsync(dto);
                 return Ok(dto);
             }
             catch (Exception ex)
@@ -105,7 +105,7 @@ namespace Duraid.API.Controllers
         {
             try
             {
-                if (await _categoryCommander.DeleteCategoryAsync(id))
+                if (await _categoryCommander.DeleteAsync(id))
                     return NoContent();
                 return BadRequest();
             }

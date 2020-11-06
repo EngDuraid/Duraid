@@ -30,11 +30,21 @@ namespace Duraid.Blazor.Services
                 int lastPosition = (name1.Length) - 1;
                 name1 = name1.Remove(lastPosition, 1) + "ies";
             }
+            else
+            {
+                name1 += "s";
+            }
             path = name1.ToLower();
         }
 
-        public async Task<IEnumerable<T>> Get() { return await http.GetJsonAsync<IEnumerable<T>>($"api/{path}"); }
-        public async Task<T> Get(Guid id) { return await http.GetJsonAsync<T>($"api/{path}/{id}"); }
+        public async Task<IEnumerable<T>> Get() 
+        {
+            return await http.GetJsonAsync<IEnumerable<T>>($"api/{path}");
+        }
+        public async Task<T> Get(Guid id) 
+        {
+            return await http.GetJsonAsync<T>($"api/{path}/{id}");
+        }
 
         public async Task<T> Create(T content)
         {

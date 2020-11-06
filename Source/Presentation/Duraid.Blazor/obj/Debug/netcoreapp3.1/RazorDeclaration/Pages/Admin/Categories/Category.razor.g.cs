@@ -90,6 +90,13 @@ using Duraid.Common.DTO;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 13 "D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\_Imports.razor"
+using Blazored.TextEditor;
+
+#line default
+#line hidden
+#nullable disable
     public partial class Category : CategoryBase
     {
         #pragma warning disable 1998

@@ -91,6 +91,13 @@ using Duraid.Common.DTO;
 #line hidden
 #nullable disable
 #nullable restore
+#line 13 "D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\_Imports.razor"
+using Blazored.TextEditor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\Pages\FetchData.razor"
 using Duraid.Blazor.Data;
 

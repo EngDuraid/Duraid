@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Duraid.Infrastructure.Mapping.Profiles;
 using Duraid.Infrastructure.Services.Data.Categories;
+using Duraid.Infrastructure.Services.Data.Posts;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,9 @@ namespace Duraid.Infrastructure
         {
             services.AddTransient<ICategoryServices, CategoryServices>();
             services.AddTransient<ICategoryCommander, CategoryCommander>();
+
+            services.AddTransient<IPostServices, PostServices>();
+            services.AddTransient<IPostCommanderServices, PostCommanderServices>();
 
         }
 

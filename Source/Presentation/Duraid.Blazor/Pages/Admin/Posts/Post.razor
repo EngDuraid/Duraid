@@ -1,0 +1,96 @@
+﻿@inherits PostBase
+
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12">
+            @if (string.IsNullOrWhiteSpace(Post?.PostTitle))
+            {
+                <h3>@Title New Post</h3>
+            }
+            else
+            {
+                <h3>@Title @Post.PostTitle</h3>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12">
+            <div class="form-group">
+                @if (Categories is null)
+                {
+                    <div class="alert alert-warning">Loadding</div>
+                }
+                else
+                {
+                    <srtong class="col-form-label">Categories: </srtong>
+                    <div class="form-check form-check-inline">
+
+                        <select @bind="@SelectedCategoryId" class="form-control form-check-input">
+                            <option value="@Guid.Empty">Select category</option>
+
+                            @foreach (var cnt in Categories)
+                            {
+                                <option value="@cnt.CategoryId">@cnt.CategoryName</option>
+                            }
+
+                        </select>
+                        <button class="btn btn-outline-dark input-group-prepend" title="Add category to post" @onclick="@AddPostCategory">
+                            <span class="oi oi-plus" />
+                        </button>
+                    </div>
+                }
+            </div>
+            <p>
+                @if (PostCategories != null)
+                {
+                    <div class="form-check form-check-inline">
+                        <strong class="col-form-label">Post categories:   </strong>
+                        <ul class="col-form-label list-inline list-unstyled">
+                            @foreach (var category in PostCategories)
+                            {
+
+                                <li class="list-inline-item">
+                                    <span class="badge badge-light">
+                                        <i class="oi oi-delete" @onclick="@(()=> RemoveCategory(category))"></i>
+                                        <span>
+                                            @category.CategoryName
+                                        </span>
+                                    </span>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12">
+            <EditForm Model="@Post" OnValidSubmit="@SaveAsync">
+                <DataAnnotationsValidator />
+
+                <div class="form-group">
+                    <p> Post title</p>
+                    <InputText class="form-control" @bind-Value="@Post.PostTitle" />
+                    <ValidationMessage For="@(() => Post.PostTitle)" />
+
+                </div>
+
+                @*<div class="form-group">
+                        <p> Post Content</p>
+                        <InputTextArea class="form-control" @bind-Value="@Post.PostContent"/>
+                        <ValidationMessage For="@(() => Post.PostContent)" />
+                    </div>*@
+                <Duraid.Blazor.Shared.Helper.RichEditor @ref="@RichEditor" />
+
+                <div class="btn-block">
+                    <button class="btn btn-outline-primary" type="submit" title="Save"><span class="oi oi-check" /></button>
+                    <NavLink href="admin/posts" class="btn btn-dark" title="Back"><span class="oi oi-arrow-circle-left" /></NavLink>
+
+                </div>
+            </EditForm>
+
+        </div>
+    </div>
+
+</div>

@@ -19,8 +19,4 @@
     <ProjectReference Include="..\Duraid.BusinessLogic\Duraid.BusinessLogic.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\Data\Posts\" />
-  </ItemGroup>
-
 </Project>

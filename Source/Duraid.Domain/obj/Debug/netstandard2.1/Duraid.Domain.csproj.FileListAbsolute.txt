@@ -6,3 +6,4 @@ D:\Repos\Duraid\Source\Duraid.Domain\obj\Debug\netstandard2.1\Duraid.Domain.Asse
 D:\Repos\Duraid\Source\Duraid.Domain\obj\Debug\netstandard2.1\Duraid.Domain.dll
 D:\Repos\Duraid\Source\Duraid.Domain\obj\Debug\netstandard2.1\Duraid.Domain.pdb
 D:\Repos\Duraid\Source\Duraid.Domain\obj\Debug\netstandard2.1\Duraid.Domain.csproj.CoreCompileInputs.cache
+D:\Repos\Duraid\Source\Duraid.Domain\obj\Debug\netstandard2.1\Duraid.Domain.csprojAssemblyReference.cache
