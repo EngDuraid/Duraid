@@ -1,5 +1,6 @@
 ﻿using Duraid.Blazor.Services;
 using Duraid.Blazor.Services.Categories;
+using Duraid.Blazor.Services.PostCategories;
 using Duraid.Blazor.Services.Posts;
 using Duraid.Common.DTO;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +21,10 @@ namespace Duraid.Blazor
                 client.BaseAddress = new Uri(url);
             });
             services.AddHttpClient<IPostServices, PostServices>(client =>
+            {
+                client.BaseAddress = new Uri(url);
+            });
+            services.AddHttpClient<IPostCategoryService,PostCategoryService>(client =>
             {
                 client.BaseAddress = new Uri(url);
             });

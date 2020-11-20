@@ -10,5 +10,6 @@ namespace Duraid.Common.DTO
         public Guid PostId { get; set; }
 
         public Guid CategoryId { get; set; }
+        public string  CategoryName { get; set; }
     }
 }

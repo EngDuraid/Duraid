@@ -15,6 +15,8 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         [Inject]
         public IPostServices Services { get; set; }
        
+        [Inject]
+        NavigationManager NavigationManager { get; set; }
         protected override async Task OnInitializedAsync()
         {
             await GetPostsAsync();
@@ -33,6 +35,16 @@ namespace Duraid.Blazor.Pages.Admin.Posts
 
                 //throw ex;
             }
+        }
+
+        public void Delete(PostDTO post)
+        {
+
+        }
+
+        public void Edit(PostDTO post)
+        {
+            NavigationManager.NavigateTo($"/admin/posts/update/{post.PostId}");
         }
     }
 }

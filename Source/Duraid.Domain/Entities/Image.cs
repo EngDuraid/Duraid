@@ -9,7 +9,7 @@ namespace Duraid.Domain.Entities
     {
         public Image()
         {
-            PostImages = new HashSet<PostImage>();
+            ImagePosts = new HashSet<PostImage>();
         }
         public Guid ImageId
         { get => Id; set => Id = value; }
@@ -17,6 +17,6 @@ namespace Duraid.Domain.Entities
         public string ImageDescription { get; set; }
         public string ImageUrl { get; set; }
 
-        public ICollection<PostImage> PostImages { get; set; }
+        public ICollection<PostImage> ImagePosts { get; set; }
     }
 }

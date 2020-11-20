@@ -24,6 +24,23 @@ namespace Duraid.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Image",
+                columns: table => new
+                {
+                    ImageId = table.Column<Guid>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CreatedByUserId = table.Column<Guid>(nullable: false),
+                    EditedDate = table.Column<DateTime>(nullable: true),
+                    EditedByUserId = table.Column<Guid>(nullable: true),
+                    ImageDescription = table.Column<string>(nullable: true),
+                    ImageUrl = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Image", x => x.ImageId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Posts",
                 columns: table => new
                 {
@@ -93,6 +110,31 @@ namespace Duraid.Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "PostImages",
+                columns: table => new
+                {
+                    PostImageId = table.Column<Guid>(nullable: false),
+                    PostId = table.Column<Guid>(nullable: false),
+                    ImageId = table.Column<Guid>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PostImages", x => x.PostImageId);
+                    table.ForeignKey(
+                        name: "FK_PostImages_Image_ImageId",
+                        column: x => x.ImageId,
+                        principalTable: "Image",
+                        principalColumn: "ImageId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PostImages_Posts_PostId",
+                        column: x => x.PostId,
+                        principalTable: "Posts",
+                        principalColumn: "PostId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Comments_PostId",
                 table: "Comments",
@@ -107,6 +149,16 @@ namespace Duraid.Persistence.Migrations
                 name: "IX_PostCategories_PostId",
                 table: "PostCategories",
                 column: "PostId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PostImages_ImageId",
+                table: "PostImages",
+                column: "ImageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PostImages_PostId",
+                table: "PostImages",
+                column: "PostId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -118,7 +170,13 @@ namespace Duraid.Persistence.Migrations
                 name: "PostCategories");
 
             migrationBuilder.DropTable(
+                name: "PostImages");
+
+            migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Image");
 
             migrationBuilder.DropTable(
                 name: "Posts");

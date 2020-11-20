@@ -10,7 +10,7 @@ namespace Duraid.Blazor.Services
     {
         Task<T> Create(T model);
 
-        Task Delete(Guid id);
+        Task<bool> Delete(Guid id);
 
         Task<IEnumerable<T>> Get();
 

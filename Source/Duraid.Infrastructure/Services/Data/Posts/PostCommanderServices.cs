@@ -24,6 +24,7 @@ namespace Duraid.Infrastructure.Services.Data.Posts
             try
             {
                 CheckIfPostTitleIsValid(dto);
+                CheckIfPostContentIsValid(dto);
                 return await base.CreateAsync(dto);
             }
             catch (Exception ex)
@@ -69,6 +70,7 @@ namespace Duraid.Infrastructure.Services.Data.Posts
         {
             CheckIfPostIdIsValid(dto);
             CheckIfPostTitleIsValid(dto);
+            CheckIfPostContentIsValid(dto);
         }
 
         private static void CheckIfPostTitleIsValid(PostDTO dto)
@@ -81,6 +83,11 @@ namespace Duraid.Infrastructure.Services.Data.Posts
         {
             if (dto.PostId == Guid.Empty)
                 throw new ArgumentException("Invalid post id", nameof(dto.PostId));
+        }
+        private static void CheckIfPostContentIsValid(PostDTO dto)
+        {
+            if (dto.PostId == Guid.Empty)
+                throw new ArgumentException("Invalid post content", nameof(dto.PostContent));
         }
 
         #endregion

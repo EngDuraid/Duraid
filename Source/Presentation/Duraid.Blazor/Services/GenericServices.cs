@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +24,7 @@ namespace Duraid.Blazor.Services
         void CreatePath()
         {
             string name = typeof(T).Name.ToString();// "CategoryDTO";
-            string name1 = name.Replace("DTO", "");
+            string name1 = name.Replace("DTO", string.Empty);
             if (name1.EndsWith("y"))
             {
                 int lastPosition = (name1.Length) - 1;
@@ -37,11 +37,11 @@ namespace Duraid.Blazor.Services
             path = name1.ToLower();
         }
 
-        public async Task<IEnumerable<T>> Get() 
+        public async Task<IEnumerable<T>> Get()
         {
             return await http.GetJsonAsync<IEnumerable<T>>($"api/{path}");
         }
-        public async Task<T> Get(Guid id) 
+        public async Task<T> Get(Guid id)
         {
             return await http.GetJsonAsync<T>($"api/{path}/{id}");
         }
@@ -70,13 +70,19 @@ namespace Duraid.Blazor.Services
             }
             catch (Exception ex)
             {
-                throw ex; 
+                throw ex;
             }
         }
 
-        public async Task Delete(Guid id)
+        public async Task<bool> Delete(Guid id)
         {
-            HttpResponseMessage x = await http.DeleteAsync($"api/{path}/{id}");
+            var c = await http.DeleteAsync($"api/{path}/{id}");
+            
+            if (c.StatusCode is (System.Net.HttpStatusCode)StatusCodes.Status200OK)
+                return true;
+            
+            return false;
         }
+
     }
 }

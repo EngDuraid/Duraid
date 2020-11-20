@@ -10,6 +10,7 @@ namespace Duraid.Domain.Entities
         {
             Comments = new HashSet<Comment>();
             PostCategories = new HashSet<PostCategory>();
+            PostImages = new HashSet<PostImage>();
         }
         public Guid PostId
         {
@@ -22,6 +23,7 @@ namespace Duraid.Domain.Entities
 
         public ICollection<PostCategory> PostCategories { get; set; }
         public ICollection<Comment> Comments { get; set; }
+        public ICollection<PostImage> PostImages { get; set; }
 
     }
 }

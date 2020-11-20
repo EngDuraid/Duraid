@@ -16,6 +16,7 @@ using Microsoft.Extensions.Hosting;
 using Duraid.Blazor.Areas.Identity;
 using Duraid.Blazor.Data;
 using Microsoft.AspNetCore.SignalR;
+using Blazored.Toast;
 
 namespace Duraid.Blazor
 {
@@ -42,6 +43,8 @@ namespace Duraid.Blazor
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddSingleton<WeatherForecastService>();
+            services.AddBlazoredToast();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -73,6 +73,35 @@ namespace Duraid.Persistence.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("Duraid.Domain.Entities.Image", b =>
+                {
+                    b.Property<Guid>("ImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("CreatedByUserId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("EditedByUserId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("EditedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageDescription")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ImageId");
+
+                    b.ToTable("Image");
+                });
+
             modelBuilder.Entity("Duraid.Domain.Entities.Post", b =>
                 {
                     b.Property<Guid>("PostId")
@@ -138,6 +167,27 @@ namespace Duraid.Persistence.Migrations
                     b.ToTable("PostCategories");
                 });
 
+            modelBuilder.Entity("Duraid.Domain.Entities.PostImage", b =>
+                {
+                    b.Property<Guid>("PostImageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("ImageId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("PostId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("PostImageId");
+
+                    b.HasIndex("ImageId");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("PostImages");
+                });
+
             modelBuilder.Entity("Duraid.Domain.Entities.Comment", b =>
                 {
                     b.HasOne("Duraid.Domain.Entities.Post", "Post")
@@ -157,6 +207,21 @@ namespace Duraid.Persistence.Migrations
 
                     b.HasOne("Duraid.Domain.Entities.Post", "Post")
                         .WithMany("PostCategories")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Duraid.Domain.Entities.PostImage", b =>
+                {
+                    b.HasOne("Duraid.Domain.Entities.Image", "Image")
+                        .WithMany("ImagePosts")
+                        .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Duraid.Domain.Entities.Post", "Post")
+                        .WithMany("PostImages")
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
