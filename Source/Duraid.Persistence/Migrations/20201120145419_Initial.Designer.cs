@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Duraid.Persistence.Migrations
 {
     [DbContext(typeof(DuraidDataContext))]
-    [Migration("20201120144649_Initial")]
+    [Migration("20201120145419_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -177,6 +177,9 @@ namespace Duraid.Persistence.Migrations
 
                     b.Property<Guid>("ImageId")
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsMainPostImage")
+                        .HasColumnType("INTEGER");
 
                     b.Property<Guid>("PostId")
                         .HasColumnType("TEXT");

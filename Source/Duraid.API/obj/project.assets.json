@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
+    "net5.0": {
       "AutoMapper/10.1.0": {
         "type": "package",
         "dependencies": {
@@ -1523,7 +1523,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
+    "net5.0": [
       "Duraid.Infrastructure >= 1.0.0",
       "Duraid.Persistence >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.9"
@@ -1552,7 +1552,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "net5.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
@@ -1560,7 +1560,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "projectReferences": {
             "D:\\Repos\\Duraid\\Source\\Duraid.Infrastructure\\Duraid.Infrastructure.csproj": {
               "projectPath": "D:\\Repos\\Duraid\\Source\\Duraid.Infrastructure\\Duraid.Infrastructure.csproj"
@@ -1578,7 +1579,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
+      "net5.0": {
+        "targetAlias": "net5.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -1605,7 +1607,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -115,6 +115,7 @@ namespace Duraid.Persistence.Migrations
                 columns: table => new
                 {
                     PostImageId = table.Column<Guid>(nullable: false),
+                    IsMainPostImage = table.Column<bool>(nullable: false),
                     PostId = table.Column<Guid>(nullable: false),
                     ImageId = table.Column<Guid>(nullable: false)
                 },

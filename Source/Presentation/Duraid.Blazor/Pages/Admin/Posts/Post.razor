@@ -89,32 +89,38 @@
         </div>
     </div>
     <div class="row">
+            <strong> please add images to post from here!</strong>
+        <file  multiple/>
+        
+
+    </div>
+    <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12">
             @if (Post != null)
             {
-                <EditForm Model="@Post" OnValidSubmit="@SaveAsync">
-                    <DataAnnotationsValidator />
+            <EditForm Model="@Post" OnValidSubmit="@SaveAsync">
+                <DataAnnotationsValidator />
 
-                    <div class="form-group">
-                        <p> Post title</p>
-                        <InputText class="form-control" @bind-Value="@Post.PostTitle" />
-                        <ValidationMessage For="@(() => Post.PostTitle)" />
+                <div class="form-group">
+                    <p> Post title</p>
+                    <InputText class="form-control" @bind-Value="@Post.PostTitle" />
+                    <ValidationMessage For="@(() => Post.PostTitle)" />
 
-                    </div>
+                </div>
 
-                    @*<div class="form-group">
-                            <p> Post Content</p>
-                            <InputTextArea class="form-control" @bind-Value="@Post.PostContent"/>
-                            <ValidationMessage For="@(() => Post.PostContent)" />
-                        </div>*@
-                    <Duraid.Blazor.Shared.Helper.RichEditor @ref="@RichEditor" QuillContent="@Post.PostContent" />
+                @*<div class="form-group">
+            <p> Post Content</p>
+            <InputTextArea class="form-control" @bind-Value="@Post.PostContent"/>
+            <ValidationMessage For="@(() => Post.PostContent)" />
+        </div>*@
+                <Duraid.Blazor.Shared.Helper.RichEditor @ref="@RichEditor" QuillContent="@Post.PostContent" />
 
-                    <div class="btn-block">
-                        <button class="btn btn-outline-primary" type="submit" title="Save"><span class="oi oi-check" /></button>
-                        <a href="admin/posts" class="btn btn-dark" title="Back"><span class="oi oi-arrow-circle-left" /></a>
+                <div class="btn-block">
+                    <button class="btn btn-outline-primary" type="submit" title="Save"><span class="oi oi-check" /></button>
+                    <a href="admin/posts" class="btn btn-dark" title="Back"><span class="oi oi-arrow-circle-left" /></a>
 
-                    </div>
-                </EditForm>
+                </div>
+            </EditForm>
             }
             else
             {

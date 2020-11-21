@@ -176,6 +176,9 @@ namespace Duraid.Persistence.Migrations
                     b.Property<Guid>("ImageId")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsMainPostImage")
+                        .HasColumnType("INTEGER");
+
                     b.Property<Guid>("PostId")
                         .HasColumnType("TEXT");
 
