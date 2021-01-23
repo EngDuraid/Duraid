@@ -9,8 +9,8 @@ namespace Duraid.Infrastructure.Mapping.Profiles
     {
         public PostProfile()
         {
-            CreateMap<PostDTO, Post>();
-            CreateMap<Post, PostDTO>();
+            CreateMap<PostDto, Post>();
+            CreateMap<Post, PostDto>();
         }
     }
 }

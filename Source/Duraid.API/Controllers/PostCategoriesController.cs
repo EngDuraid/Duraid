@@ -58,7 +58,7 @@ namespace Duraid.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] PostCategoryDTO model)
+        public async Task<IActionResult> Post([FromBody] PostCategoryDto model)
         {
             try
             {

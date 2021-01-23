@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Duraid.Infrastructure.Services.Data.PostCategories
 {
-    class PostCategoryCommanderServices : GenericCommanderServices<PostCategory, PostCategoryDTO>, IPostCategoryCommanderServices
+    class PostCategoryCommanderServices : GenericCommanderServices<PostCategory, PostCategoryDto>, IPostCategoryCommanderServices
     {
         readonly ICommander<PostCategory> _commader;
         readonly IMapper _mapper;
@@ -22,7 +22,7 @@ namespace Duraid.Infrastructure.Services.Data.PostCategories
         }
 
 
-        public override async Task<bool> CreateAsync(PostCategoryDTO dto)
+        public override async Task<bool> CreateAsync(PostCategoryDto dto)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace Duraid.Infrastructure.Services.Data.PostCategories
                 throw ex;
             }
         }
-        public override async Task<bool> UpdateAsync(PostCategoryDTO dto)
+        public override async Task<bool> UpdateAsync(PostCategoryDto dto)
         {
             try
             {
@@ -68,19 +68,19 @@ namespace Duraid.Infrastructure.Services.Data.PostCategories
 
         #region Validation Methods
 
-        private static void ValidateBeforeUpdate(PostCategoryDTO dto)
+        private static void ValidateBeforeUpdate(PostCategoryDto dto)
         {
             CheckIfPostIdIsValid(dto);
             CheckIfCategoryIdIsValid(dto);
         }
 
-        private static void CheckIfCategoryIdIsValid(PostCategoryDTO dto)
+        private static void CheckIfCategoryIdIsValid(PostCategoryDto dto)
         {
             if (dto.CategoryId == Guid.Empty)
                 throw new ArgumentException("Invalid category id", nameof(dto.CategoryId));
         }
 
-        private static void CheckIfPostIdIsValid(PostCategoryDTO dto)
+        private static void CheckIfPostIdIsValid(PostCategoryDto dto)
         {
             if (dto.PostId == Guid.Empty)
                 throw new ArgumentException("Invalid post id", nameof(dto.PostId));

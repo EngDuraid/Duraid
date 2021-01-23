@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Duraid.Infrastructure.Services.Data.Posts
 {
-    class PostCommanderServices : GenericCommanderServices<Post, PostDTO>, IPostCommanderServices
+    class PostCommanderServices : GenericCommanderServices<Post, PostDto>, IPostCommanderServices
     {
         readonly IFilter<Post> _filter;
         public PostCommanderServices(IFilter<Post> filter, ICommander<Post> commander, IMapper mapper)
@@ -19,7 +19,7 @@ namespace Duraid.Infrastructure.Services.Data.Posts
             _filter = filter;
         }
 
-        public override async Task<bool> CreateAsync(PostDTO dto)
+        public override async Task<bool> CreateAsync(PostDto dto)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace Duraid.Infrastructure.Services.Data.Posts
                 throw ex;
             }
         }
-        public override async Task<bool> UpdateAsync(PostDTO dto)
+        public override async Task<bool> UpdateAsync(PostDto dto)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace Duraid.Infrastructure.Services.Data.Posts
         }
 
 
-        public  async new Task<bool> DeleteAsync(Guid dto)
+        public new async Task<bool> DeleteAsync(Guid dto)
         {
             try
             {
@@ -66,25 +66,25 @@ namespace Duraid.Infrastructure.Services.Data.Posts
 
         #region Validation Methods
 
-        private static void ValidateBeforeUpdate(PostDTO dto)
+        private static void ValidateBeforeUpdate(PostDto dto)
         {
             CheckIfPostIdIsValid(dto);
             CheckIfPostTitleIsValid(dto);
             CheckIfPostContentIsValid(dto);
         }
 
-        private static void CheckIfPostTitleIsValid(PostDTO dto)
+        private static void CheckIfPostTitleIsValid(PostDto dto)
         {
             if (string.IsNullOrWhiteSpace(dto.PostTitle))
                 throw new ArgumentException("Invalid post title", nameof(dto.PostTitle));
         }
 
-        private static void CheckIfPostIdIsValid(PostDTO dto)
+        private static void CheckIfPostIdIsValid(PostDto dto)
         {
             if (dto.PostId == Guid.Empty)
                 throw new ArgumentException("Invalid post id", nameof(dto.PostId));
         }
-        private static void CheckIfPostContentIsValid(PostDTO dto)
+        private static void CheckIfPostContentIsValid(PostDto dto)
         {
             if (dto.PostId == Guid.Empty)
                 throw new ArgumentException("Invalid post content", nameof(dto.PostContent));

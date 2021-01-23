@@ -12,7 +12,7 @@ namespace Duraid.Blazor.Pages.Admin.Categories
     public class CategoryBase: ComponentBase
     {
         [Parameter]
-        public CategoryDTO Category { get; set; }
+        public CategoryDto Category { get; set; }
 
         [Parameter]
         public string Id { get; set; }
@@ -41,7 +41,7 @@ namespace Duraid.Blazor.Pages.Admin.Categories
                 else
                 {
                     Title = "Create";
-                    Category = new CategoryDTO();
+                    Category = new CategoryDto();
                 }
             }
             catch (Exception)

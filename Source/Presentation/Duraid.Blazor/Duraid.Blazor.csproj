@@ -22,7 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Uploads\" />
     <Folder Include="Services\Categories\" />
+    <Folder Include="wwwroot\Temp\" />
   </ItemGroup>
 
 </Project>

@@ -8,11 +8,11 @@ namespace Duraid.Blazor.Pages.Admin.Posts
 {
     public class PostCreateBase : ComponentBase
     {
-        public PostDTO Post { get; set; }
+        public PostDto Post { get; set; }
 
         protected override void OnInitialized()
         {
-            Post = new PostDTO();
+            Post = new PostDto();
         }
     }
 }

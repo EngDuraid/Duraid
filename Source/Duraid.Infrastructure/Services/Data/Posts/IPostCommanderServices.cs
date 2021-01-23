@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace Duraid.Infrastructure.Services.Data.Posts
 {
-    public interface IPostCommanderServices: IGenericCommanderServices<Post,PostDTO>
+    public interface IPostCommanderServices: IGenericCommanderServices<Post,PostDto>
     {
-        //Task<bool> CreatePostAsync(PostDTO dto);
+        //Task<bool> CreatePostAsync(PostDto dto);
         new Task<bool> DeleteAsync(Guid dto);
-        //Task<bool> UpdatePostAsync(PostDTO dto);
+        //Task<bool> UpdatePostAsync(PostDto dto);
     }
 }

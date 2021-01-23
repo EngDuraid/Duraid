@@ -72,6 +72,7 @@ D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\RazorDeclarat
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\RazorDeclaration\Pages\FetchData.razor.g.cs
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\RazorDeclaration\Shared\Helper\Confirm.razor.g.cs
+D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\RazorDeclaration\Shared\Helper\PhotoUploader.razor.g.cs
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\RazorDeclaration\Shared\Helper\RichEditor.razor.g.cs
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\RazorDeclaration\Shared\LoginDisplay.razor.g.cs
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\RazorDeclaration\Shared\MainLayout.razor.g.cs
@@ -97,6 +98,7 @@ D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\Razor\Pages\C
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\Razor\Pages\FetchData.razor.g.cs
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\Razor\Shared\Helper\Confirm.razor.g.cs
+D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\Razor\Shared\Helper\PhotoUploader.razor.g.cs
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\Razor\Shared\Helper\RichEditor.razor.g.cs
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\Razor\Shared\LoginDisplay.razor.g.cs
 D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\obj\Debug\net5.0\Razor\Shared\MainLayout.razor.g.cs

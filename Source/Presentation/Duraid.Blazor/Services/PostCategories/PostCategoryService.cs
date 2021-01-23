@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Duraid.Blazor.Services.PostCategories
 {
-    public class PostCategoryService : GenericServices<PostCategoryDTO>, IPostCategoryService
+    public class PostCategoryService : GenericServices<PostCategoryDto>, IPostCategoryService
     {
         readonly HttpClient _http;
         public PostCategoryService(HttpClient http) : base(http)
@@ -18,12 +18,12 @@ namespace Duraid.Blazor.Services.PostCategories
             this._http = http;
         }
 
-        public async Task<IEnumerable<PostCategoryDTO>> GetPostCategoriesByPostIdAsync(Guid id)
+        public async Task<IEnumerable<PostCategoryDto>> GetPostCategoriesByPostIdAsync(Guid id)
         {
             try
 
             {
-                return await _http.GetJsonAsync<IEnumerable<PostCategoryDTO>>($"api/postCategories/p/{id}");
+                return await _http.GetJsonAsync<IEnumerable<PostCategoryDto>>($"api/postCategories/p/{id}");
             }
             catch (Exception ex)
             {

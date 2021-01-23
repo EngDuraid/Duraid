@@ -11,8 +11,8 @@ namespace Duraid.Infrastructure.Mapping.Profiles
     {
         public PostCategoryProfile()
         {
-            CreateMap<PostCategory, PostCategoryDTO>().ForMember(des => des.CategoryName, op => op.MapFrom(src => src.Category.CategoryName));
-            CreateMap<PostCategoryDTO, PostCategory>();
+            CreateMap<PostCategory, PostCategoryDto>().ForMember(des => des.CategoryName, op => op.MapFrom(src => src.Category.CategoryName));
+            CreateMap<PostCategoryDto, PostCategory>();
         }
     }
 }

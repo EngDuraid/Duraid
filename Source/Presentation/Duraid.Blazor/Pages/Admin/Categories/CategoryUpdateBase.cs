@@ -10,7 +10,7 @@ namespace Duraid.Blazor.Pages.Admin.Categories
 {
     public class CategoryUpdateBase : ComponentBase
     {
-        public CategoryDTO  Category { get; set; }
+        public CategoryDto  Category { get; set; }
 
         [Inject]
         public ICategoryServices Services { get; set; }
@@ -20,7 +20,7 @@ namespace Duraid.Blazor.Pages.Admin.Categories
         public string Id { get; set; }
         protected override async Task OnInitializedAsync()
         {
-            Category = new CategoryDTO();
+            Category = new CategoryDto();
             Guid.TryParse(Id, out Guid id);
             if (id == Guid.Empty)
                 return;

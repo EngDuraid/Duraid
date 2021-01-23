@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Duraid.Blazor.Services.Categories
 {
-    public interface ICategoryServices: IGenericServices<CategoryDTO>
+    public interface ICategoryServices: IGenericServices<CategoryDto>
     {
     }
 }

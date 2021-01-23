@@ -10,7 +10,7 @@ namespace Duraid.Blazor.Pages.Admin.Posts
 {
     public class PostsBase : ComponentBase
     {
-        public IEnumerable<PostDTO> Posts { get; set; }
+        public IEnumerable<PostDto> Posts { get; set; }
 
         [Inject]
         public IPostServices Services { get; set; }
@@ -37,12 +37,12 @@ namespace Duraid.Blazor.Pages.Admin.Posts
             }
         }
 
-        public void Delete(PostDTO post)
+        public void Delete(PostDto post)
         {
 
         }
 
-        public void Edit(PostDTO post)
+        public void Edit(PostDto post)
         {
             NavigationManager.NavigateTo($"/admin/posts/update/{post.PostId}");
         }

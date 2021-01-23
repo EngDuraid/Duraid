@@ -10,7 +10,7 @@ namespace Duraid.Blazor.Pages.Admin.Categories
 {
     public class CategoryDetailsBase:ComponentBase
     {
-        public CategoryDTO Category{ get; set; }
+        public CategoryDto Category{ get; set; }
 
         [Inject]
         public ICategoryServices Service { get; set; }

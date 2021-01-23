@@ -68,7 +68,7 @@ namespace Duraid.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CategoryDTO dto)
+        public async Task<IActionResult> Post([FromBody] CategoryDto dto)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace Duraid.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(Guid id, [FromBody] CategoryDTO dto)
+        public async Task<IActionResult> Put(Guid id, [FromBody] CategoryDto dto)
         {
             try
             {

@@ -7,9 +7,9 @@ namespace Duraid.Infrastructure.Services.Data.PostCategories
 {
     public interface IPostCategoryServices
     {
-        Task<IEnumerable<PostCategoryDTO>> GetPostCategoriesByPostIdAsync(Guid postId);
-        Task<IEnumerable<PostCategoryDTO>> GetPostCategoriesByCategoryIdAsync(Guid categoryId);
-        Task<PostCategoryDTO> GetPostCategoryAsync(Guid PostCategoryId);
+        Task<IEnumerable<PostCategoryDto>> GetPostCategoriesByPostIdAsync(Guid postId);
+        Task<IEnumerable<PostCategoryDto>> GetPostCategoriesByCategoryIdAsync(Guid categoryId);
+        Task<PostCategoryDto> GetPostCategoryAsync(Guid PostCategoryId);
         Task<bool> PostCategoryExistAsync(Guid postCategoryId);
     }
 }

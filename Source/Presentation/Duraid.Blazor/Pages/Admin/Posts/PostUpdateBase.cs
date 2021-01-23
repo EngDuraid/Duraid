@@ -14,7 +14,7 @@ namespace Duraid.Blazor.Pages.Admin.Posts
     {
         [Parameter]
         public string Id { get; set; }
-        public PostDTO Post { get; set; }
+        public PostDto Post { get; set; }
 
         [Inject]
         IPostServices Services { get; set; }
@@ -23,7 +23,7 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         [Inject]
         IPostCategoryService PostCategoryService { get; set; }
 
-        public IEnumerable<PostCategoryDTO> PostCategories { get; set; }
+        public IEnumerable<PostCategoryDto> PostCategories { get; set; }
         protected override async Task OnInitializedAsync()
         {
             try
@@ -38,7 +38,7 @@ namespace Duraid.Blazor.Pages.Admin.Posts
                 {
                     PostCategories = await PostCategoryService.GetPostCategoriesByPostIdAsync(Post.PostId);
                 }
-                PostCategories ??= new List<PostCategoryDTO>();
+                PostCategories ??= new List<PostCategoryDto>();
             }
             catch (Exception ex)
             {

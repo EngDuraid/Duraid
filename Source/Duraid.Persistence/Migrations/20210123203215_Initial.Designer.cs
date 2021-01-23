@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Duraid.Persistence.Migrations
 {
     [DbContext(typeof(DuraidDataContext))]
-    [Migration("20201120145419_Initial")]
+    [Migration("20210123203215_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,7 +96,10 @@ namespace Duraid.Persistence.Migrations
                     b.Property<string>("ImageDescription")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<string>("ImageDirectory")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ImageName")
                         .HasColumnType("TEXT");
 
                     b.HasKey("ImageId");
@@ -175,10 +178,22 @@ namespace Duraid.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("CreatedByUserId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("EditedByUserId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("EditedDate")
+                        .HasColumnType("TEXT");
+
                     b.Property<Guid>("ImageId")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("IsMainPostImage")
+                    b.Property<bool>("IsDefaultPostImage")
                         .HasColumnType("INTEGER");
 
                     b.Property<Guid>("PostId")

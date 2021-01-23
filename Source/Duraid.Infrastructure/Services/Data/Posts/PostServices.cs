@@ -23,17 +23,17 @@ namespace Duraid.Infrastructure.Services.Data.Posts
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<PostDTO>> GetPostsAsync()
+        public async Task<IEnumerable<PostDto>> GetPostsAsync()
         {
             return await _filter.Search(p => p.PostId != null)
-                .ProjectTo<PostDTO>(_mapper.ConfigurationProvider)
+                .ProjectTo<PostDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
         }
 
-        public async Task<PostDTO> GetPostAsync(Guid postId)
+        public async Task<PostDto> GetPostAsync(Guid postId)
         {
             return await _filter.Search(p => p.PostId == postId)
-                .ProjectTo<PostDTO>(_mapper.ConfigurationProvider)
+                .ProjectTo<PostDto>(_mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync();
         }
     }

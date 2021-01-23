@@ -22,23 +22,23 @@ namespace Duraid.Infrastructure.Services.Data.PostCategories
             _filter = filter;
         }
 
-        public async Task<IEnumerable<PostCategoryDTO>> GetPostCategoriesByPostIdAsync(Guid postId)
+        public async Task<IEnumerable<PostCategoryDto>> GetPostCategoriesByPostIdAsync(Guid postId)
         {
             return await _filter.Search(c => c.PostId == postId)
-                .ProjectTo<PostCategoryDTO>(_mapper.ConfigurationProvider)
+                .ProjectTo<PostCategoryDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
         }
-        public async Task<IEnumerable<PostCategoryDTO>> GetPostCategoriesByCategoryIdAsync(Guid categoryId)
+        public async Task<IEnumerable<PostCategoryDto>> GetPostCategoriesByCategoryIdAsync(Guid categoryId)
         {
             return await _filter.Search(c => c.CategoryId == categoryId)
-                .ProjectTo<PostCategoryDTO>(_mapper.ConfigurationProvider)
+                .ProjectTo<PostCategoryDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
         }
 
-        public async Task<PostCategoryDTO> GetPostCategoryAsync(Guid PostCategoryId)
+        public async Task<PostCategoryDto> GetPostCategoryAsync(Guid PostCategoryId)
         {
             return await _filter.Search(c => c.PostCategoryId == PostCategoryId)
-               .ProjectTo<PostCategoryDTO>(_mapper.ConfigurationProvider)
+               .ProjectTo<PostCategoryDto>(_mapper.ConfigurationProvider)
                .FirstOrDefaultAsync();
         }
 

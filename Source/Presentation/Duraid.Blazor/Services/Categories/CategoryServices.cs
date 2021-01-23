@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Duraid.Blazor.Services.Categories
 {
-    public class CategoryServices : GenericServices<CategoryDTO>, ICategoryServices
+    public class CategoryServices : GenericServices<CategoryDto>, ICategoryServices
     {
         public CategoryServices(HttpClient httpClient) : base(httpClient)
         {

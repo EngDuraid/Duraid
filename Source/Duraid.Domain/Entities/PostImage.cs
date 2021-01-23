@@ -2,10 +2,10 @@
 
 namespace Duraid.Domain.Entities
 {
-    public class PostImage
+    public class PostImage:EntityBase
     {
         public Guid PostImageId { get; set; }
-        public bool IsMainPostImage { get; set; }
+        public bool IsDefaultPostImage { get; set; }
         public Guid PostId { get; set; }
         public Post Post { get; set; }
 

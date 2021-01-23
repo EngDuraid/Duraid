@@ -9,11 +9,11 @@ namespace Duraid.Blazor.Pages.Admin.Categories
 {
     public class CategoryCreateBase:ComponentBase
     {
-        public CategoryDTO Category { get; set; }
+        public CategoryDto Category { get; set; }
 
         protected override void OnInitialized()
         {
-            Category = new CategoryDTO();
+            Category = new CategoryDto();
         }
     }
 }

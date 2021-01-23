@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Duraid.Blazor.Services.Posts
 {
-    public class PostServices : GenericServices<PostDTO>, IPostServices
+    public class PostServices : GenericServices<PostDto>, IPostServices
     {
         public PostServices(HttpClient httpClient) : base(httpClient)
         {

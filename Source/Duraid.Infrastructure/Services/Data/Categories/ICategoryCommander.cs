@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace Duraid.Infrastructure.Services.Data.Categories
 {
-    public interface ICategoryCommander : IGenericCommanderServices<Category, CategoryDTO>
+    public interface ICategoryCommander : IGenericCommanderServices<Category, CategoryDto>
     {
-        //Task<bool> CreateCategoryAsync(CategoryDTO dto);
-        //Task<bool> UpdateCategoryAsync(CategoryDTO dto);
+        //Task<bool> CreateCategoryAsync(CategoryDto dto);
+        //Task<bool> UpdateCategoryAsync(CategoryDto dto);
         new Task<bool> DeleteAsync(Guid dto);
     }
 }

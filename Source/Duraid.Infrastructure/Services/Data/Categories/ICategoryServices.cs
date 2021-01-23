@@ -7,8 +7,8 @@ namespace Duraid.Infrastructure.Services.Data.Categories
 {
     public interface ICategoryServices
     {
-        Task<IEnumerable<CategoryDTO>> GetCategoriesAsync();
-        Task<CategoryDTO> GetCategoryAsync(Guid categoryId);
+        Task<IEnumerable<CategoryDto>> GetCategoriesAsync();
+        Task<CategoryDto> GetCategoryAsync(Guid categoryId);
         Task<bool> CategoryExistAsync(Guid categoryId);
     }
 }

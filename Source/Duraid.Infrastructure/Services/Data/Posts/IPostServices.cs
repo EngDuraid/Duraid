@@ -7,7 +7,7 @@ namespace Duraid.Infrastructure.Services.Data.Posts
 {
     public interface IPostServices
     {
-        Task<PostDTO> GetPostAsync(Guid postId);
-        Task<IEnumerable<PostDTO>> GetPostsAsync();
+        Task<PostDto> GetPostAsync(Guid postId);
+        Task<IEnumerable<PostDto>> GetPostsAsync();
     }
 }

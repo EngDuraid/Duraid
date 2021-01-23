@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Duraid.Infrastructure.Services.Data.Categories
 {
-    class CategoryCommander : GenericCommanderServices<Category, CategoryDTO>, ICategoryCommander
+    class CategoryCommander : GenericCommanderServices<Category, CategoryDto>, ICategoryCommander
     {
 
         readonly IFilter<Category> _filter;
@@ -21,7 +21,7 @@ namespace Duraid.Infrastructure.Services.Data.Categories
             _filter = filter;
         }
 
-        public override async Task<bool> CreateAsync(CategoryDTO dto)
+        public override async Task<bool> CreateAsync(CategoryDto dto)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace Duraid.Infrastructure.Services.Data.Categories
                 throw ex;
             }
         }
-        public override async Task<bool> UpdateAsync(CategoryDTO dto)
+        public override async Task<bool> UpdateAsync(CategoryDto dto)
         {
             try
             {
@@ -67,19 +67,19 @@ namespace Duraid.Infrastructure.Services.Data.Categories
 
         #region Validation Methods
 
-        private static void ValidateBeforeUpdate(CategoryDTO dto)
+        private static void ValidateBeforeUpdate(CategoryDto dto)
         {
             CheckIfCategoryIdIsValid(dto);
             CheckIfCategoryNameIsValid(dto);
         }
 
-        private static void CheckIfCategoryNameIsValid(CategoryDTO dto)
+        private static void CheckIfCategoryNameIsValid(CategoryDto dto)
         {
             if (string.IsNullOrWhiteSpace(dto.CategoryName))
                 throw new ArgumentException("Invalid category name", nameof(dto.CategoryName));
         }
 
-        private static void CheckIfCategoryIdIsValid(CategoryDTO dto)
+        private static void CheckIfCategoryIdIsValid(CategoryDto dto)
         {
             if (dto.CategoryId == Guid.Empty)
                 throw new ArgumentException("Invalid category id", nameof(dto.CategoryId));

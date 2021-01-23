@@ -1,0 +1,36 @@
+﻿@page "/upload"
+@inherits Duraid.Blazor.Shared.Helper.PhotoUploaderBase
+    <div class="container">
+        <div class="row">
+            <p class="alert alert-dark col-12">@Message</p>
+        </div>
+        <div class="row">
+            <form @onsubmit="OnSubmitAsync" class="form-group">
+                @*<InputFile class="custom-control-input" OnChange="OnInputFileChange" multiple  />*@
+                <div class="custom-file">
+                    <InputFile  OnChange="OnInputFileChange" multiple class="custom-file-input" id="customFile"/>
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+                
+                <button class="btn btn-outline-info" type="submit" title="Upload"><span class="oi oi-data-transfer-upload"></span></button>
+            </form>
+        </div>
+        <div class="row">
+            <p>
+                @foreach (var photo in Photos)
+                {
+                    <div class="card p-2 m-2" style="width: 100px">
+
+                        <img class="card-img-top" src="@photo.ImageUrl" alt="Card image cap">
+                        <div class="card-body text-center">
+
+                            <button title="Delete" class="btn btn-danger btn-sm text-center" @onclick="() => RemoveFromPhotosAsync(photo)">
+                                <span class="oi oi-trash" aria-hidden="true"></span>
+                            </button>
+
+                        </div>
+                    </div>
+                }
+            </p>
+        </div>
+    </div>

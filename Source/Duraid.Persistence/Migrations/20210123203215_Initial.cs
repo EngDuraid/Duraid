@@ -33,7 +33,8 @@ namespace Duraid.Persistence.Migrations
                     EditedDate = table.Column<DateTime>(nullable: true),
                     EditedByUserId = table.Column<Guid>(nullable: true),
                     ImageDescription = table.Column<string>(nullable: true),
-                    ImageUrl = table.Column<string>(nullable: true)
+                    ImageName = table.Column<string>(nullable: true),
+                    ImageDirectory = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -115,7 +116,11 @@ namespace Duraid.Persistence.Migrations
                 columns: table => new
                 {
                     PostImageId = table.Column<Guid>(nullable: false),
-                    IsMainPostImage = table.Column<bool>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CreatedByUserId = table.Column<Guid>(nullable: false),
+                    EditedDate = table.Column<DateTime>(nullable: true),
+                    EditedByUserId = table.Column<Guid>(nullable: true),
+                    IsDefaultPostImage = table.Column<bool>(nullable: false),
                     PostId = table.Column<Guid>(nullable: false),
                     ImageId = table.Column<Guid>(nullable: false)
                 },

@@ -114,7 +114,7 @@ using Blazored.Toast.Services;
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.OpenComponent<Duraid.Blazor.Pages.Admin.Categories.Category>(0);
-            __builder.AddAttribute(1, "Category", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Duraid.Common.DTO.CategoryDTO>(
+            __builder.AddAttribute(1, "Category", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Duraid.Common.DTO.CategoryDto>(
 #nullable restore
 #line 4 "D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\Pages\Admin\Categories\CategoryUpdate.razor"
                      Category

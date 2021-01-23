@@ -23,8 +23,8 @@ namespace Duraid.Blazor.Services
 
         void CreatePath()
         {
-            string name = typeof(T).Name.ToString();// "CategoryDTO";
-            string name1 = name.Replace("DTO", string.Empty);
+            string name = typeof(T).Name.ToString();// "CategoryDto";
+            string name1 = name.Replace("Dto", string.Empty);
             if (name1.EndsWith("y"))
             {
                 int lastPosition = (name1.Length) - 1;

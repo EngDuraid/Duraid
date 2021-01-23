@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Duraid.Blazor.Services.PostCategories
 {
-    public interface IPostCategoryService:IGenericServices<PostCategoryDTO>
+    public interface IPostCategoryService:IGenericServices<PostCategoryDto>
     {
-        Task<IEnumerable<PostCategoryDTO>> GetPostCategoriesByPostIdAsync(Guid id);
+        Task<IEnumerable<PostCategoryDto>> GetPostCategoriesByPostIdAsync(Guid id);
     }
 }

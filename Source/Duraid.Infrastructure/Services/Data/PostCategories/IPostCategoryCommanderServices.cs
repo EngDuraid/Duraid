@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Duraid.Infrastructure.Services.Data.PostCategories
 {
-    public interface IPostCategoryCommanderServices:IGenericCommanderServices<PostCategory,PostCategoryDTO>
+    public interface IPostCategoryCommanderServices:IGenericCommanderServices<PostCategory,PostCategoryDto>
     {
         new Task<bool> DeleteAsync(Guid dto);
     }

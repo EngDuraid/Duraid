@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using Duraid.Common.DTO;
 using Duraid.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace Duraid.Infrastructure.Mapping.Profiles
 {
@@ -11,8 +9,8 @@ namespace Duraid.Infrastructure.Mapping.Profiles
     {
         public CategoryProfile()
         {
-            CreateMap<CategoryDTO, Category>();
-            CreateMap<Category, CategoryDTO>();
+            CreateMap<CategoryDto, Category>();
+            CreateMap<Category, CategoryDto>();
         }
     }
 }

@@ -21,17 +21,17 @@ namespace Duraid.Infrastructure.Services.Data.Categories
             _filter = filter;
         }
 
-        public async Task<IEnumerable<CategoryDTO>> GetCategoriesAsync()
+        public async Task<IEnumerable<CategoryDto>> GetCategoriesAsync()
         {
             return await _filter.Search(c => c.CategoryId != null)
-                .ProjectTo<CategoryDTO>(_mapper.ConfigurationProvider)
+                .ProjectTo<CategoryDto>(_mapper.ConfigurationProvider)
                 .ToListAsync();
         }
 
-        public async Task<CategoryDTO> GetCategoryAsync(Guid categoryId)
+        public async Task<CategoryDto> GetCategoryAsync(Guid categoryId)
         {
             return await _filter.Search(c => c.CategoryId == categoryId)
-               .ProjectTo<CategoryDTO>(_mapper.ConfigurationProvider)
+               .ProjectTo<CategoryDto>(_mapper.ConfigurationProvider)
                .FirstOrDefaultAsync();
         }
 

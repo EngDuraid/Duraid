@@ -15,7 +15,7 @@ namespace Duraid.Blazor.Pages.Admin.Categories
     {
         private HubConnection hubConnection;
         
-        public ICollection<CategoryDTO> Categories { get; set; }
+        public ICollection<CategoryDto> Categories { get; set; }
         [Inject]
         public ICategoryServices Service { get; set; }
 
@@ -35,7 +35,7 @@ namespace Duraid.Blazor.Pages.Admin.Categories
 
         private async Task UpdateCategoriesAsync()
         {
-            Categories = (ICollection<CategoryDTO>)await Service.Get();
+            Categories = (ICollection<CategoryDto>)await Service.Get();
         }
 
         protected async Task StartListen()
@@ -44,7 +44,7 @@ namespace Duraid.Blazor.Pages.Admin.Categories
                 .WithUrl(NavigationManager.ToAbsoluteUri("https://localhost:44341/connector"))
                 .Build();
 
-            hubConnection.On<ICollection<CategoryDTO>>("GetMessage", (categories) =>
+            hubConnection.On<ICollection<CategoryDto>>("GetMessage", (categories) =>
             {
                 Categories = categories;
                 StateHasChanged();

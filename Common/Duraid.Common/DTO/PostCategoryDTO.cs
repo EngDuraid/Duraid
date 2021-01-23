@@ -4,8 +4,12 @@ using System.Text;
 
 namespace Duraid.Common.DTO
 {
-    public class PostCategoryDTO
+    public class PostCategoryDto
     {
+        public PostCategoryDto()
+        {
+            PostCategoryId=Guid.NewGuid();
+        }
         public Guid PostCategoryId { get; set; }
         public Guid PostId { get; set; }
 

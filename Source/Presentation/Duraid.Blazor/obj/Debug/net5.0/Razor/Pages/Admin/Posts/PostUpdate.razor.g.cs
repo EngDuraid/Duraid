@@ -114,7 +114,7 @@ using Blazored.Toast.Services;
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.OpenComponent<Duraid.Blazor.Pages.Admin.Posts.Post>(0);
-            __builder.AddAttribute(1, "Post", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Duraid.Common.DTO.PostDTO>(
+            __builder.AddAttribute(1, "Post", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Duraid.Common.DTO.PostDto>(
 #nullable restore
 #line 5 "D:\Repos\Duraid\Source\Presentation\Duraid.Blazor\Pages\Admin\Posts\PostUpdate.razor"
              Post
