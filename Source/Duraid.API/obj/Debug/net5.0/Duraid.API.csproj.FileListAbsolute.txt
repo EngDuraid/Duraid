@@ -9,8 +9,6 @@ D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\ref\Duraid.API.dll
 D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\Duraid.API.pdb
 D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\AutoMapper.dll
 D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\Microsoft.Bcl.HashCode.dll
 D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\Microsoft.Data.Sqlite.dll
 D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
 D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
@@ -60,3 +58,7 @@ D:\Repos\Duraid\Source\Duraid.API\obj\Debug\net5.0\Duraid.API.dll
 D:\Repos\Duraid\Source\Duraid.API\obj\Debug\net5.0\ref\Duraid.API.dll
 D:\Repos\Duraid\Source\Duraid.API\obj\Debug\net5.0\Duraid.API.pdb
 D:\Repos\Duraid\Source\Duraid.API\obj\Debug\net5.0\Duraid.API.genruntimeconfig.cache
+D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\Humanizer.dll
+D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+D:\Repos\Duraid\Source\Duraid.API\bin\Debug\net5.0\runtimes\linux-mips64\native\libe_sqlite3.so

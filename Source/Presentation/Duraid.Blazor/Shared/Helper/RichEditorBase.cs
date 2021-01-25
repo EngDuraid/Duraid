@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Duraid.Blazor.Shared.Helper
@@ -27,17 +28,21 @@ namespace Duraid.Blazor.Shared.Helper
             if (!firstRender)
                 return;
             bool loading = true;
-            while (loading)
+            int errorCounter = 0;
+            while (loading && errorCounter < 5)
             {
                 try
                 {
+                    if (QuillContent is null)
+                        return;
                     await QuillHtml.LoadHTMLContent(QuillContent);
                     loading = false;
                 }
-                catch
+                catch(Exception ex)
                 {
                     await Task.Delay(10);
                     loading = true;
+                    errorCounter++;
                 }
 
             }

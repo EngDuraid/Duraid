@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Duraid.Blazor.Pages.Admin.Posts;
 using Duraid.Blazor.Services.Images;
 using Duraid.Blazor.Services.PostImages;
 
@@ -40,10 +41,14 @@ namespace Duraid.Blazor
             {
                 client.BaseAddress = new Uri(url);
             });
+
+
+            
         }
         public static void ConfigureServices(this IServiceCollection services)
         {
             services.AddTransient<IFileUploadService, FileUploadService>();
+            services.AddTransient<IImageHelper, ImageHelper>();
         }
 
     }

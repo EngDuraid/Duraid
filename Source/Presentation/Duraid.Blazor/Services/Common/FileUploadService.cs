@@ -74,8 +74,8 @@ namespace Duraid.Blazor.Services.Common
 
         private static async Task UploadImageAsync(IBrowserFile file, ImageDto image)
         {
-            Stream stream = file.OpenReadStream();
-            FileStream fs = File.Create(image.ImageUri);
+            var stream = file.OpenReadStream();
+            var fs = File.Create(image.ImageUri);
             await stream.CopyToAsync(fs);
             stream.Close();
             fs.Close();
