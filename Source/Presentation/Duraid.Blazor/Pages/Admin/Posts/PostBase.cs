@@ -28,12 +28,8 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         public IList<PostImageDto> PostImages { get; set; }
         public string Title { get; set; }
 
-        public Guid SelectedCategoryId { get; set; }
-        public IEnumerable<CategoryDto> CategoriesList { get; set; }
-        public List<CategoryDto> Categories { get; set; }
-        public IEnumerable<PostCategoryDto> PostCategories { get; set; }
 
-        public string[] CategoriesArray { get; set; }
+
         public RichEditor RichEditor { get; set; }
         public bool ErrorMessageIsVisible { get; set; }
 
@@ -51,12 +47,10 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         #endregion
 
         #region Services
-        [Inject]
-        private IPostCategoryService PostCategoryService { get; set; }
+        
         [Inject]
         private IImageServices ImageServices { get; set; }
-        [Inject]
-        private ICategoryServices CategoryServices { get; set; }
+        
         [Inject]
         private IImageHelper ImageHelper { get; set; }
 
@@ -70,113 +64,41 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         #region Actions
         #region Validation Actions
 
-        private void PostCategoriesIsValid()
-        {
-
-            if (Categories?.Count < 1)
-                throw new Exception("The post must have one category at least!");
-        }
+        
 
         #endregion
 
         #region Data Actions
 
-        private async Task GetCategoriesAsync()
-        {
-            CategoriesList = await CategoryServices.Get();
-            CategoriesArray = CategoriesList.Select(c => c.CategoryName).ToArray();
-        }
+       
 
-        private async Task GetPostCategoriesAsync()
-        {
-            if (Post.PostId == Guid.Empty)
-                throw new Exception("Internal communication error!");
-            PostCategories = await PostCategoryService.GetPostCategoriesByPostIdAsync(Post.PostId);
-            foreach (var postCategory in PostCategories)
-            {
-                var category = new CategoryDto { CategoryId = postCategory.CategoryId, CategoryName = postCategory.CategoryName };
-                Categories.Add(category);
-            }
-        }
+        
 
         async Task<int> SynchronisePostCategoriesAsync()
         {
             int changed = 0;
-            changed += await InsertCategoriesToPostAsync();
-            changed += await DeleteOldCategoriesAsync();
+            //changed += await InsertCategoriesToPostAsync();
+            //changed += await DeleteOldCategoriesAsync();
             return changed;
         }
 
-        async Task<int> InsertCategoriesToPostAsync()
-        {
-            int count = 0;
-            foreach (var category in Categories)
-            {
-                if (!PostCategories.Any(c => c.CategoryId == category.CategoryId))
-                {
-                    if (!(await InsertPostCategoryAsync(CreatePostCategoryDto(category.CategoryId)) is null))
-                        count++;
-                }
-            }
-            return count;
-        }
+        
 
-        async Task<int> DeleteOldCategoriesAsync()
-        {
-            int count = 0;
-            foreach (var postCategory in PostCategories)
-            {
-                if (!Categories.Any(c => c.CategoryId == postCategory.CategoryId))
-                {
-                    if (await DeletePostCategoryAsync(postCategory.PostCategoryId))
-                        count++;
-                }
-            }
-            return count;
-        }
+        
 
-        public void RemoveCategory(CategoryDto category)
-        {
-            Categories.Remove(category);
-        }
+      
 
-        private async Task<bool> DeletePostCategoryAsync(Guid postCategoryId)
-        {
-            return await PostCategoryService.Delete(postCategoryId);
-        }
-
-        private async Task<PostCategoryDto> InsertPostCategoryAsync(PostCategoryDto dto)
-        {
-            return await PostCategoryService.Create(dto);
-        }
+       
 
         #endregion
 
         #region Functional Actions
 
-        internal void AddPostCategory()
-        {
-            if (SelectedCategoryId == Guid.Empty)
-                return;
-
-            var category = CategoriesList.FirstOrDefault(category => category.CategoryId == SelectedCategoryId);
-
-            if (category is null)
-                return;
-
-            bool c = Categories?.Any(c => c.CategoryId == category.CategoryId) ?? false;
-
-            if (c)
-                return;
-
-            Categories.Add(category);
-            //StateHasChanged();
-        }
+       
 
         private void Initialize()
         {
-            PostCategories ??= new List<PostCategoryDto>();
-            Categories = new List<CategoryDto>();
+           
             Post = new PostDto();
             Images = new List<ImageDto>();
             PostImages = new List<PostImageDto>();
@@ -187,13 +109,13 @@ namespace Duraid.Blazor.Pages.Admin.Posts
             try
             {
                 Initialize();
-                await GetCategoriesAsync();
+               // await GetCategoriesAsync();
                 if (!(Id is null))
                 {
                     Guid.TryParse(Id, out Guid result);
                     Title = "Update";
                     Post = await PostServices.Get(result);
-                    await GetPostCategoriesAsync();
+                 //   await GetPostCategoriesAsync();
                 }
                 else
                 {
@@ -222,7 +144,7 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         {
             try
             {
-                PostCategoriesIsValid();
+//                PostCategoriesIsValid();
                 await RichEditor.GetHTMLAsync();
                 if (string.IsNullOrWhiteSpace(RichEditor.QuillHTMLContent))
                 {
@@ -320,15 +242,6 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         private static PostImageDto CreatePostImage(Guid imageId, bool isDefaultPostImage)
         {
             return new() { ImageId = imageId, IsDefaultPostImage = isDefaultPostImage };
-        }
-        private PostCategoryDto CreatePostCategoryDto(Guid categoryId)
-        {
-            return new()
-            {
-                PostId = Post.PostId,
-                CategoryId = categoryId,
-                PostCategoryId = Guid.NewGuid()
-            };
         }
         #endregion
 

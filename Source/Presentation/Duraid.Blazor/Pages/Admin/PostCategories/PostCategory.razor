@@ -1,1 +1,53 @@
 ﻿@inherits PostCategoryBase
+
+
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12">
+        <div class="form-group">
+            @if (CategoriesList is null)
+            {
+                <div class="alert alert-warning">Loading</div>
+            }
+            else
+            {
+                <srtong class="col-form-label">Categories: </srtong>
+                <div class="form-check form-check-inline">
+
+                    <select @bind="@SelectedCategoryId" class="form-control form-check-input">
+                        <option value="@Guid.Empty">Select category</option>
+
+                        @foreach (var cnt in CategoriesList)
+                        {
+                            <option value="@cnt.CategoryId">@cnt.CategoryName</option>
+                        }
+
+                    </select>
+                    <button class="btn btn-outline-dark form-check-inline" title="Add category to post" @onclick="@AddPostCategory">
+                        <span class="oi oi-plus" />
+                    </button>
+                </div>
+            }
+        </div>
+        <p>
+            @if (Categories != null)
+            {
+                <div class="form-check form-check-inline">
+                    <strong class="col-form-label">Post categories:   </strong>
+                    <ul class="col-form-label list-inline list-unstyled">
+                        @foreach (var category in Categories)
+                        {
+                            <li class="list-inline-item">
+                                <span class="badge badge-light">
+                                    <i class="oi oi-delete" @onclick="@(()=> RemoveCategory(category))"></i>
+                                    <span>
+                                        @category.CategoryName
+                                    </span>
+                                </span>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </p>
+    </div>
+</div>
