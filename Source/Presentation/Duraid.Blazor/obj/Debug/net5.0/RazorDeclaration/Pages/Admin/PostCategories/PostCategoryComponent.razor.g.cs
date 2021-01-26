@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace Duraid.Blazor.Pages.Admin.PostImages
+namespace Duraid.Blazor.Pages.Admin.PostCategories
 {
     #line hidden
     using System;
@@ -110,7 +110,7 @@ using Blazored.Toast.Services;
 #line default
 #line hidden
 #nullable disable
-    public partial class PostImageComponent : PostImageComponentBase
+    public partial class PostCategoryComponent : PostCategoryComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)

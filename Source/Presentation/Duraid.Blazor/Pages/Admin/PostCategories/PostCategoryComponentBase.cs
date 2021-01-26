@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace Duraid.Blazor.Pages.Admin.PostCategories
 {
-    public class PostCategoryBase : ComponentBase
+    public class PostCategoryComponentBase : ComponentBase
     {
         public Guid SelectedCategoryId { get; set; }
         public IEnumerable<CategoryDto> CategoriesList { get; set; }

@@ -37,13 +37,13 @@
         </div>
     </div>
     <div class="row">
-        <Duraid.Blazor.Pages.Admin.PostCategories.PostCategory @ref="PostCategoryHelper" Post=@Post/>
+        <Duraid.Blazor.Pages.Admin.PostCategories.PostCategoryComponent @ref="PostCategoryComponent" Post=@Post />
+    </div>
+    <div class="row">
+        <Duraid.Blazor.Pages.Admin.PostImages.PostImageComponent @ref="PostImageComponent" Post=@Post />
     </div>
 
-    <div class="row">
-        <Duraid.Blazor.Shared.Helper.PhotoUploader PhotoDeleted="PhotoDeleted" PhotoInserted="PhotoInserted"/>
-    </div>
-        
+
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12">
             @if (Post != null)

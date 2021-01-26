@@ -27,6 +27,7 @@
   <ItemGroup>
     <Folder Include="Services\Categories\" />
     <Folder Include="wwwroot\Temp\" />
+    <Folder Include="wwwroot\Uploads\" />
   </ItemGroup>
 
 </Project>

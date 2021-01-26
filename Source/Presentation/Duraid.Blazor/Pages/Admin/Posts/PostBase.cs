@@ -15,6 +15,7 @@ using System.Linq;
 using System.Security.Permissions;
 using System.Threading.Tasks;
 using Duraid.Blazor.Pages.Admin.PostCategories;
+using Duraid.Blazor.Pages.Admin.PostImages;
 using Duraid.Blazor.Services.Images;
 using Microsoft.AspNetCore.Hosting;
 
@@ -23,15 +24,21 @@ namespace Duraid.Blazor.Pages.Admin.Posts
 
     public class PostBase : ComponentBase
     {
+
+        #region Flields
+        protected internal PostCategoryComponent PostCategoryComponent;
+        protected internal PostImageComponent PostImageComponent;
+
+        #endregion
+
         #region Properties
 
-        public IList<ImageDto> Images { get; set; }
-        public IList<PostImageDto> PostImages { get; set; }
+
         public string Title { get; set; }
 
 
-        public PostCategory PostCategoryHelper;
-        public RichEditor RichEditor { get; set; }
+
+        protected internal RichEditor RichEditor;
         public bool ErrorMessageIsVisible { get; set; }
 
         public string ErrorMessage { get; set; }
@@ -49,11 +56,7 @@ namespace Duraid.Blazor.Pages.Admin.Posts
 
         #region Services
         
-        [Inject]
-        private IImageServices ImageServices { get; set; }
-        
-        [Inject]
-        private IImageHelper ImageHelper { get; set; }
+       
 
         [Inject]
         NavigationManager NavigationManager { get; set; }
@@ -78,18 +81,10 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         async Task<int> SynchronisePostCategoriesAsync()
         {
             int changed = 0;
-            changed += await PostCategoryHelper.InsertCategoriesToPostAsync();
-            changed += await PostCategoryHelper.DeleteOldCategoriesAsync();
+            changed += await PostCategoryComponent.InsertCategoriesToPostAsync();
+            changed += await PostCategoryComponent.DeleteOldCategoriesAsync();
             return changed;
         }
-
-        
-
-        
-
-      
-
-       
 
         #endregion
 
@@ -101,8 +96,7 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         {
            
             Post = new PostDto();
-            Images = new List<ImageDto>();
-            PostImages = new List<PostImageDto>();
+            
         }
 
         protected override async Task OnInitializedAsync()
@@ -145,7 +139,7 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         {
             try
             {
-                PostCategoryHelper.PostCategoriesIsValid();
+                PostCategoryComponent.PostCategoriesIsValid();
                 await RichEditor.GetHTMLAsync();
                 if (string.IsNullOrWhiteSpace(RichEditor.QuillHTMLContent))
                 {
@@ -179,72 +173,6 @@ namespace Duraid.Blazor.Pages.Admin.Posts
                 // NavigationManager.NavigateTo("/Error");
             }
         }
-
-        private async Task InsertPostImagedAsync(PostDto created)
-        {
-            if (created?.PostId == Guid.Empty)
-                throw new ArgumentException("The is no id to this post", nameof(created.PostId));
-
-
-            foreach (var photo in Images)
-            {
-                var createdPostImage = new PostImageDto
-                {
-                    PostId = created.PostId,
-                    //IsDefaultPostImage = photo.IsDefaultPhoto,
-
-
-                };
-
-                //TODO:
-                //1- copy physical image to upload folder
-                //2- insert in Image instance into database
-                //3- insert PostImage instance into database
-            }
-        }
-
-        #region Event handler
-
-        /// <summary>
-        /// Event handler for inserting new photo from PhotoUploader child
-        /// </summary>
-        /// <param name="image"></param>
-        /// <returns></returns>
-        protected internal void PhotoInserted(ImageDto image)
-        {
-            Images?.Add(image);
-            var postImage = CreatePostImage(image.ImageId, PostImages?.Count < 1);
-            PostImages.Add(postImage);
-        }
-
-        /// <summary>
-        /// Event handler for deleting existing uploaded photo in the 
-        /// </summary>
-        /// <param name="image"></param>
-        /// <returns></returns>
-
-        protected internal void PhotoDeleted(ImageDto image)
-        {
-            //Remove from images
-            Images?.Remove(Images?.FirstOrDefault(p => p.ImageId == image.ImageId));
-
-            //Remove from PostImages
-
-            PostImages?.Remove(PostImages?.FirstOrDefault(p => p.ImageId == image.ImageId));
-            var photo = PostImages?.FirstOrDefault();
-            if (photo is null)
-                return;
-            photo.IsDefaultPostImage = true;
-        }
-
-        #endregion
-
-        #region Dto Creations Actions
-        private static PostImageDto CreatePostImage(Guid imageId, bool isDefaultPostImage)
-        {
-            return new() { ImageId = imageId, IsDefaultPostImage = isDefaultPostImage };
-        }
-        #endregion
 
         #endregion
     }
