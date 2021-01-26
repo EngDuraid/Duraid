@@ -30,7 +30,7 @@ namespace Duraid.Blazor.Pages.Admin.PostCategories
         #region Actions
 
         #region DataActions
-        async Task<int> DeleteOldCategoriesAsync()
+        protected internal async Task<int> DeleteOldCategoriesAsync()
         {
             int count = 0;
             foreach (var postCategory in PostCategories)
@@ -83,7 +83,7 @@ namespace Duraid.Blazor.Pages.Admin.PostCategories
             }
         }
 
-        async Task<int> InsertCategoriesToPostAsync()
+        protected  internal async Task<int> InsertCategoriesToPostAsync()
         {
             int count = 0;
             foreach (var category in Categories)
@@ -97,7 +97,7 @@ namespace Duraid.Blazor.Pages.Admin.PostCategories
             return count;
         }
 
-        private async Task<bool> DeletePostCategoryAsync(Guid postCategoryId)
+        protected internal async Task<bool> DeletePostCategoryAsync(Guid postCategoryId)
         {
             return await PostCategoryService.Delete(postCategoryId);
         }
@@ -110,7 +110,7 @@ namespace Duraid.Blazor.Pages.Admin.PostCategories
 
         #region Validation Actions
 
-        private void PostCategoriesIsValid()
+        protected internal void PostCategoriesIsValid()
         {
 
             if (Categories?.Count < 1)
@@ -140,19 +140,25 @@ namespace Duraid.Blazor.Pages.Admin.PostCategories
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if(rendered)
+            if(!firstRender)
                 return;
-            
             await GetCategoriesAsync();
+            if (!(Post is null))
+            {
+                await GetPostCategoriesAsync();
+            }
+                
             StateHasChanged();
-            rendered = true;
+           
         }
 
-        private bool rendered;
         protected  internal async Task SavePostCategoriesAsync()
         {
             await Task.Delay(10);
         }
-       
+
+        
+
     }
+
 }

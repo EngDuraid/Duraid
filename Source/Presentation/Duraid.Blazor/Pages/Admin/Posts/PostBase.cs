@@ -14,6 +14,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Permissions;
 using System.Threading.Tasks;
+using Duraid.Blazor.Pages.Admin.PostCategories;
 using Duraid.Blazor.Services.Images;
 using Microsoft.AspNetCore.Hosting;
 
@@ -29,7 +30,7 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         public string Title { get; set; }
 
 
-
+        public PostCategory PostCategoryHelper;
         public RichEditor RichEditor { get; set; }
         public bool ErrorMessageIsVisible { get; set; }
 
@@ -77,8 +78,8 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         async Task<int> SynchronisePostCategoriesAsync()
         {
             int changed = 0;
-            //changed += await InsertCategoriesToPostAsync();
-            //changed += await DeleteOldCategoriesAsync();
+            changed += await PostCategoryHelper.InsertCategoriesToPostAsync();
+            changed += await PostCategoryHelper.DeleteOldCategoriesAsync();
             return changed;
         }
 
@@ -144,7 +145,7 @@ namespace Duraid.Blazor.Pages.Admin.Posts
         {
             try
             {
-//                PostCategoriesIsValid();
+                PostCategoryHelper.PostCategoriesIsValid();
                 await RichEditor.GetHTMLAsync();
                 if (string.IsNullOrWhiteSpace(RichEditor.QuillHTMLContent))
                 {
